@@ -1,5 +1,5 @@
 var indexController = {
- index: function(req, res) {
+   index: function(req, res) {
     res.send('esto es el index');
  }
 };
