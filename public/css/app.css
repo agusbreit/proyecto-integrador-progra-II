@@ -1,18 +1,23 @@
 /*====== Fonts ======*/
 @import url('https://fonts.googleapis.com/css?family=Roboto:300,400,700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Lobster&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@1,100&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
 
 /*====== Variables ======*/
 :root {
-  --yellow: #ea2667;
-  --dark-blue: #03264C;
-  --light-blue: #1259c3;
-  --gray: #666666;
+  --yellow: #ff5b9a;
+  --dark-blue: #ff8d23;
+  --light-blue: #ff8d23;;
+  --gray: black;
   --light-gray: #ebebeb;
-  --green: #39b54a;
-  --base-font-family: 'Roboto', sans-serif
+  --green: blue;
 }
 
+ /*====== --base-font-family: 'Roboto', sans-serif; ======*/
 
 /*====== Basics ======*/
 * {
@@ -26,8 +31,8 @@ body {
   font-size: 10px;
 }
 
+
 body {
-  font-family: var(--base-font-family);
   font-weight: 300;
   background-color: var(--light-gray);
 }
@@ -37,12 +42,15 @@ ol {
   list-style: none;
   margin: 0;
   padding: 0;
-}
+  }
 
+/*====== EDITE ======*/
 a {
   display: inline-block;
   text-decoration: none;
   color: inherit;
+  font-family: 'Poppins', sans-serif;
+
 }
 
 figure {
@@ -80,6 +88,7 @@ hr {
   font-size: 1.5em;
   margin-top: 20px;
   text-align: center;
+  font-family: 'Bebas Neue', cursive;
 }
 
 .search-form {
@@ -109,11 +118,15 @@ hr {
   cursor: pointer;
 }
 
+.container.main-navbar{
+  color: red; 
+}
+
 
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
-  color: #ffffff;
+  color: white; 
   font-size: 1.5em;
   border: none;
   border-radius: 4px;
@@ -259,7 +272,7 @@ hr {
 
 /*====== Footer ======*/
 .main-footer {
-  background-color: #ffffff;
+  background-color: #ffffff; 
   padding: 20px 0;
   margin-top: 80px;
 }
@@ -274,15 +287,18 @@ hr {
 }
 
 .footer-data h2 {
-  color: var(--gray);
+  color: var(--gray); 
   font-size: 2.4em;
   font-weight: 400;
+  color: #ff8d23;
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .footer-data p {
-  color: var(--gray);
   font-size: 1.5em;
   font-weight: 300;
+  font-family: 'Ubuntu Condensed', sans-serif;
+
 }
 
 .sub-footer {
@@ -294,10 +310,11 @@ hr {
   margin: 0;
   color: var(--gray);
   padding: 15px 0;
+
 }
 
 
-/*====== Product Detail ======*/
+ /*Product Detail */
 .product-detail {
   background-color: #ffffff;
   border-radius: 8px;
@@ -314,12 +331,26 @@ hr {
   border-right: 1px solid var(--light-gray);
   padding: 15px;
   /* height: 100%; */
+  font-family: 'Archivo Black', sans-serif;
 }
 
 .product-detail-title {
-  font-weight: 400;
+ font-weight: 400;
   font-size: 2.8em;
 }
+
+h2.products-title{ 
+  font-family: 'Lobster', cursive;
+  color: #ff5b9a;
+  font-size: 45px; 
+
+}
+
+
+.main-navbar.right-navbar{
+  color:red;
+}
+
 
 .product-detail-description {
   padding: 15px 15px 15px 40px;
@@ -335,6 +366,7 @@ hr {
   padding: 0 15px;
   display: flex;
   flex-direction: column;
+  font-family: 'Archivo Black', sans-serif;
 }
 .small {
   font-size: 1.8em;
@@ -347,6 +379,7 @@ hr {
 
 .actions-list {
   margin-bottom: 50px;
+ 
 }
 
 .actions-list li {
@@ -398,6 +431,7 @@ hr {
 }
 .comments {
   padding: 30px 15px 15px 0;
+  font-family: 'Ubuntu Condensed', sans-serif;
 }
 .comments article{
   margin-bottom: 7.5px;
