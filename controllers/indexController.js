@@ -1,7 +1,8 @@
 var indexController = {
    index: function(req, res) {
-    return res.send('esto es el index');
+    return res.render('index');
  }
 };
 
 module.exports = indexController; 
+
