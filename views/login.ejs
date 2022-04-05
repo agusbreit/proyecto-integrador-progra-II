@@ -1,8 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%-include('./partials/head.ejs')%> 
 
+<%-include('./partials/head')%>
 
 <body>
 	<!-- Header -->
@@ -10,8 +10,10 @@
 	<!-- /Header -->
 
 	<label for="">Nombre</label>
-<input type="text" name="Usuario">
-<input type="text" name="Contrasenia">
+<input type="email" name="Email" placeholder="Ingrese su email">
+<input type="password" name="Contrasenia" placeholder="Ingrese su contraseña">
+<p>Recordarme</p>
+<input type="checkbox" name="Recordarme" placeholder="Recordarme">
 
 	<!-- Novedades -->
 	<div class="container products-wrapper">
