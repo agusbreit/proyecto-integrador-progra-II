@@ -1,12 +1,11 @@
 var indexController = {
-   index: function(req, res) {
-    return res.render('index');
- },
- searchResults: function(req, res) {
-   return res.render('search-results');
-},
+   index: function (req, res) {
+      res.render('index');
+   },
+   searchResults: function (req, res) {
+      res.render('search-results');
+   },
 
 };
 
-module.exports = indexController; 
-
+module.exports = indexController;
