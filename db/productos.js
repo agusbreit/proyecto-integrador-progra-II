@@ -1,37 +1,37 @@
 var productos= [
      {  nombre: 'Lenguetazos',
         descripcion: 'Caramelos lenguetazos en tres sabores: pinta lenguas, tutifruti y fiesta.',
-        image: '',
+        image: '/images/products/lenguetazo.png',
      },
 				
      { nombre: 'Chicle Beldent',
      descripcion: 'Chicles Beldent sabor menta. 8 unidades, frecura garantizada.',
-     image: '',
+     image: '/images/products/beldent menta.webp',
      },
      
      { nombre: 'Sugus confitados',
      descripcion: 'Sugus confitados sabor frutilla, moras y limon',
-     image: '',
+     image: '/images/products/sugus-confitados-1.jpeg',
      },
 
      { nombre: 'Alfajor Milka Oreo',
      descripcion: 'Alfajor torta sabor Oreo y con el mejor chocolate Milka, delicioso.',
-     image: '',
+     image: '/images/products/alfajor milka.webp',
      },
     
      { nombre: 'Chocolate Arcor',
      descripcion: 'Chocolate con leche y mani, apto para celiacos',
-     image: '',
+     image: '/images/products/chocolate arcor.jpeg',
      },
 
      { nombre: 'Chocolate Block',
      descripcion: 'Chocolate con leche y mani marca Cofler. 38 g la unidad, irresistible.',
-     image: '',
+     image: '/images/products/block chocolate.jpeg',
      },
 
      { nombre: 'Cerebritos Mogul',
      descripcion: 'Gomitas rellenas en forma de cerebrito marcra Mogul. Sabores limon, fresa, banana y manzana.',
-     image: '',
+     image: '/images/products/mogul.jpeg',
      },
 
      { nombre: 'Caramelos rellenos',
