@@ -6,7 +6,7 @@
 
 <body>
 	<!-- Header -->
-	<%-include('./partials/headerLogueado.ejs')%>
+	<%-include('./partials/header.ejs')%>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -19,9 +19,10 @@
 				<form method="get" name="form-register">
 					<input class="form-input" type="email" name="Email" placeholder="Ingrese su email">
 					<input class="form-input" type="password" name="Contrasenia" placeholder="Ingrese su contraseña">
-					<p>Recordarme</p>
+					<h1>Recordarme</h1>
 					<input class="form-input" type="checkbox" name="Recordarme" placeholder="Recordarme">
-					<input class="form-input" class="boton" type="submit" value="Login">
+					<a class="btn mt-3 ml-4" href="/users/profile">LOGUEARME</a>
+					
 				</form>
 			</section>
 
@@ -29,6 +30,6 @@
 			<!-- footer -->
 			<%-include('./partials/footer.ejs')%>
 			<!-- /footer -->
-</body>
+</body>  
 
 </html>
