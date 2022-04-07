@@ -2,11 +2,11 @@
 <html lang="es">
 <!-- Include Head -->
 
-<%-include('./partials/head.ejs') %> 
+<%-include('./partials/head.ejs')%> 
 
 <body>
 	<!-- Header -->
-	<%-include('./partials/headerLogueado.ejs')%>
+	<%-include('./partials/headerLogueado.ejs',{usuario:usuario.nombreUsuario})%>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -22,7 +22,7 @@
 					<input class="form-input" type="text" name="Nombre del productos" placeholder="Nombre del producto">
 					<input class="form-input" type="text" name="Descripcion" placeholder="Descripcion">
 					<input class="form-input" type="date" name="Fecha" placeholder="Ingrese una fecha">
-					<input class="form-input" class="boton" type="submit" value="Postear">				
+					<a class="btn mt-3 ml-4" href="/">POSTEAR PRODUCTO</a>				
 				</form>
 			</section>
 			

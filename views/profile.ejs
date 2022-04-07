@@ -5,18 +5,18 @@
 
 <body>
 	<!-- Header -->
-	<%-include('./partials/headerLogueado.ejs')%>
+	<%-include('./partials/headerLogueado.ejs', {usuario: usuario.nombreUsuario})%>
 	<!-- /Header -->
 
 	<!-- Datos del usuario -->
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="https://via.placeholder.com/150" alt="foto de perfil" class="foto-perfil">
+				<img src="<%=usuario.image%>" alt="foto de perfil" class="foto-perfil">
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title">Nombre del usuario (presiona para editar)
+					<h1 class="main-title"><%=usuario.nombreUsuario%>
 						<a href="/users/profile-edit">
 							<i class="fas fa-cog"></i>
 						</a>
@@ -25,6 +25,7 @@
 				</div>
 				<div>
 					<ul class="">
+						<h4><%=usuario.email%></h4>
 						<li>8 productos</li>
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
