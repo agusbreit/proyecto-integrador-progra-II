@@ -15,6 +15,8 @@ var usersController = {
         res.render('profile-edit', {'usuario': usuario} );
     }
 };
-
+function name(params) {
+    
+}
 
 module.exports = usersController;
