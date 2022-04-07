@@ -5,7 +5,7 @@ var productController = {
         res.render('product')
     },
     productAdd: function (req, res) {
-        res.render('product-add'), {'usuario': usuario} ;
+        res.render('product-add', {'usuario': usuario}) ;
     }
 };
 

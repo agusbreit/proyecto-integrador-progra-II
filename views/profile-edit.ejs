@@ -1,12 +1,10 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-
 <%-include('./partials/head.ejs')%> 
-
 <body>
 	<!-- Header -->
-	<%-include('./partials/headerLogueado.ejs')%>	
+	<%-include('./partials/headerLogueado.ejs', {usuario: usuario.nombreUsuario})%>
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -18,18 +16,17 @@
 			<!-- Show the "ultimos" products -->
 			<section class="form-register">
 				<form method="get"name="form-register">
-				<input class="form-input" type="email" name="Nombre" id="nombres" placeholder="Ingrese su Email" value="Martin Coel">
-				<input class="form-input" type="text" name="Usuario" id="nombres" placeholder="Ingrese su Usuario" value="Martincolepro" >
-				<input class="form-input" type="password" name="Contraseña" id="nombres" placeholder="Ingrese su Contraseña" value="eraremalalacontra">
-				<input class="form-input" type="date" name="Nombre" id="nombres" placeholder="Ingrese su fecha de nacimiento" value="">
-				<input class="form-input" type="number" name="Nombre" id="nombres" placeholder="Ingrese su nro de documento" value="23433344">
+				<input class="form-input" type="email" name="Nombre" id="nombres" placeholder="Ingrese su Email" value="<%=usuario.email%> ">
+				<input class="form-input" type="text" name="Usuario" id="nombres" placeholder="Ingrese su Usuario" value="<%=usuario.nombreUsuario%>" >
+				<input class="form-input" type="password" name="Contraseña" id="nombres" placeholder="Ingrese su Contraseña" value="<%=usuario.contrasena%>">
+				<input class="form-input" type="date" name="Nombre" id="nombres" placeholder="Ingrese su fecha de nacimiento" value="<%=usuario.nacimiento%>">
+				<input class="form-input" type="number" name="Nombre" id="nombres" placeholder="Ingrese su nro de documento" value="<%=usuario.documento%>">
 				<input class="form-input" type="file" name="Nombre" id="nombres" placeholder="Foto de perfil" value="">
 				<p>Estoy de acuerdo con <a href="#"> Terminos y condiciones</a></p>
-				<input class="boton" type="submit" value="register"> <!-- agregar un href que me lleve a profile -->
+				<a class="btn mt-3 ml-4" href="/users/profile">EDITAR INFORMACIÓN</a>
 				</form>
 			</section>
 
-			<%  %> 
 
 
 	<!-- footer -->

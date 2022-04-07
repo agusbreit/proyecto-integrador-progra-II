@@ -1,6 +1,6 @@
 var usuario = {
-    email: 'Carla Rodriguez',
-    usuario: 'CarliRod',
+    email: 'Carlarodriguez@gmail.com',
+    nombreUsuario: 'CarliRod',
     contrasena: 'caramelos48', 
     nacimiento: '26/06/99',
     documento: '40891114', 
