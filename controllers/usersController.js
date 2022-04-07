@@ -9,7 +9,7 @@ var usersController = {
         res.render('login');
     },
     profile: function (req, res) {
-        res.render('profile', {'usuario': usuario} );
+        res.render('profile', {'usuario': usuario}, {'productos': productos });
     },
     profileEdit: function (req, res) {
         res.render('profile-edit', {'usuario': usuario} );
