@@ -8,7 +8,7 @@ var productos = [{
    {
       nombre: 'Chicle Beldent',
       descripcion: 'Chicles Beldent sabor menta. 8 unidades, frecura garantizada.',
-      image: '/images/products/beldent menta.webp',
+      image: '/images/products/beldent-menta.webp',
       fecha: 10 / 05,
    },
 
@@ -22,7 +22,7 @@ var productos = [{
    {
       nombre: 'Alfajor Milka Oreo',
       descripcion: 'Alfajor torta sabor Oreo y con el mejor chocolate Milka, delicioso.',
-      image: '/images/products/alfajor milka.webp',
+      image: '/images/products/alfajor-milka.webp',
       fecha: 30 / 10,
    },
 

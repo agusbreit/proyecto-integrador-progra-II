@@ -43,6 +43,25 @@
 				<h2 class="products-title">Mis productos</h2>
 			</div>
 			<!-- Show mis productos -->
+
+			<% for ( let i=0 ; i < productos.length; i++) { %>
+				<div class="col-12 col-sm-6 col-lg-3">
+					<section class="product-box">
+						<a href="/Product">
+							<figure class="product-box_image">
+								<img src= <%= productos[i].image %> alt="cafetera moulinex">
+							</figure>
+							<article class="product-box_data">
+								<h2> <%= productos[i].modelo %> </h2>
+								<p> <%= productos[i].descripcion%> </p>
+								<p>Comentarios: 12</p>
+							</article>
+						</a>
+					</section>
+				</div>
+				<% } %>
+
+				<!--
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
 					<a href="/product">
@@ -135,7 +154,8 @@
 						</figure>
 						<article class="product-box_data">
 							<h2>Cerebritos Mogul</h2>
-							<p>Gomitas rellenas en forma de cerebrito marcra Mogul. Sabores limon, fresa, banana y manzana.</p>
+							<p>Gomitas rellenas en forma de cerebrito marcra Mogul. Sabores limon, fresa, banana y
+								manzana.</p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>
@@ -158,6 +178,7 @@
 		</div>
 	</div>
 	<!-- /Mis productos -->
+	
 
 	<!-- footer -->
 	<%-include('./partials/footer.ejs')%>
