@@ -35,3 +35,5 @@ var comentarios = [
     image: '/images/users/default-image.png', 
 },
 ]
+
+module.exports = comentarios;

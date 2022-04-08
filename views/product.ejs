@@ -16,6 +16,7 @@
 				<a href="/product/product-add">Agregar</a>
 			</p>
 		</div>
+
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
@@ -23,20 +24,41 @@
 					<p class="product-detail-description">
 						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar
 						descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo unde?
+						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo
+						unde?
 						Consectetur dolorem neque
 						veritatis.</p>
 				</article>
 				<div class="col-12 col-lg-4">
+					
+					
 					<section class="comments">
-						<article>
+						<% for ( let i = 0 ; i < comentarios.length; i++) { %>
+							<article>
+								<img src="https://via.placeholder.com/35" alt="">
+								<div class="data">
+									<p class="user">
+										<strong> <a href="/profile"> <%=comentarios[i].nombre%>  </a> </strong>
+									<%=comentarios[i].opinion%>
+									</p>
+								</div>
+							</article>
+							
+							<% } %>
+					</section>
+					
+					
+<!--						<article>
 							<img src="https://via.placeholder.com/35" alt="">
 							<div class="data">
 								<p class="user">
 									<strong> <a href="/profile">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur
-									adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit sit
-									dolore magnam, praesentium explicabo inventore molestias facilis labore. Fugit ipsa
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet
+									consectetur
+									adipisicing elit. Tempora doloribus enim aspernatur fugit corrupti suscipit
+									sit
+									dolore magnam, praesentium explicabo inventore molestias facilis labore.
+									Fugit ipsa
 									mollitia odit inventore consequuntur.</p>
 							</div>
 						</article>
@@ -45,16 +67,8 @@
 							<div class="data">
 								<p class="user">
 									<strong> <a href="/profile">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur.
-								</p>
-							</div>
-						</article>
-						<article>
-							<img src="https://via.placeholder.com/35" alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/profile">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet
+									consectetur
 									adipisicing elit.
 								</p>
 							</div>
@@ -72,13 +86,15 @@
 							<div class="data">
 								<p class="user">
 									<strong> <a href="/profile">Nombre usuario: </a> </strong>
-									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet consectetur
+									Texto del comentario que escribió el usuario Lorem ipsum dolor sit amet
+									consectetur
 									adipisicing elit.
 									Tempora doloribus enim aspernatur fugit corrupti suscipit sit dolore</p>
 							</div>
 						</article>
+					-->
 
-					</section>
+
 					<form class="form" action="" method="POST">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
 						<button type="submit" class="buy-now-button">AGREGAR COMENTARIO</button>
