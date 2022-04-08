@@ -109,6 +109,9 @@ hr {
 
 .search-form_button {
   position: absolute;
+  margin: 10px;
+  padding-left: 10px;
+  padding-top: 5px;
   right: 2px;
   height: 60%;
   background-color: #ffffff;
