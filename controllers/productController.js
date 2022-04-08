@@ -4,10 +4,10 @@ var comentarios = require('../db/comentarios');
 
 var productController = {
     index: function (req, res) {
-        res.render('product', {'usuario': usuario}, /*{'productos': productos }*/)
-    },
+        res.render('product', {'usuario': usuario, 'productos': productos }) },
+
     productAdd: function (req, res) {
-        res.render('product-add', {'usuario': usuario}, /*{'comentarios': comentarios}*/ );
+        res.render('product-add', {'usuario': usuario, 'comentarios': comentarios });
     },
     productAdd: function (req, res) {
         res.render('product-add', {'usuario': usuario}) ;
