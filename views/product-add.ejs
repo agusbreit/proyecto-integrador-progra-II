@@ -2,7 +2,7 @@
 <html lang="es">
 <!-- Include Head -->
 
-<%-include('./partials/head.ejs')%> 
+<%-include('./partials/head.ejs', {titulo:'Agregar producto - The Fantasy'})%> 
 
 <body>
 	<!-- Header -->
@@ -21,7 +21,8 @@
 					<input class="form-input" type="text" name="Nombre del productos" placeholder="Nombre del producto">
 					<input class="form-input" type="text" name="Descripcion" placeholder="Descripcion">
 					<input class="form-input" type="date" name="Fecha" placeholder="Ingrese una fecha">
-					<input class="btn mt-3 m1-4" type="image" name="Imagen" placeholder="Ingrese una Imagen" value="Ingrese Imagen">
+					<input class="form-input" type="file" name="Imagen" placeholder="Ingrese imagen de producto" value="Ingrese Imagen">
+						<!--<input class="btn mt-3 m1-4" type="image" name="Imagen" placeholder="Ingrese una Imagen" value="Ingrese Imagen">-->
 					<a class="btn mt-3 ml-4" href="/">POSTEAR PRODUCTO</a>				
 				</form>
 			</section>
