@@ -13,7 +13,7 @@
 		<div class="d-flex align-items-center">
 			<h2 class="products-title">Nombre del producto</h2>
 			<p class="product-detail-description">
-				<a href="/product/product-add">Agregar</a>
+				<a href="/product/product-add">Agregar producto</a>
 			</p>
 		</div>
 
@@ -22,12 +22,8 @@
 				<article class="col-12 col-lg-8 product-detail-info">
 					<img src="" alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						Descripción corta del producto. En la página principal solo se ven 2 líneas de estar
-						descripción.Lorem ipsum dolor,
-						sit amet consectetur adipisicing elit. Tae ipsam amet eum, totam dolore libero illo
-						unde?
-						Consectetur dolorem neque
-						veritatis.</p>
+						DESCRPCION PRODUCTO
+					</p>
 				</article>
 				<div class="col-12 col-lg-4">
 					
@@ -35,7 +31,7 @@
 					<section class="comments">
 						<% for ( let i = 0 ; i < comentarios.length; i++) { %>
 							<article>
-								<img src="https://via.placeholder.com/35" alt="">
+								<img src="<%= comentarios[i].image %> " alt="">
 								<div class="data">
 									<p class="user">
 										<strong> <a href="/profile"> <%=comentarios[i].nombre%>  </a> </strong>
