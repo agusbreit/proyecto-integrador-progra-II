@@ -10,13 +10,11 @@ var productController = {
             comentarios: comentarios,
             idProduct: req.params.id,
         });
-
     },
-
     productAdd: function (req, res) {
         res.render('product-add', {
-            usuario: usuario, 
-            comentarios: comentarios, 
+            usuario: usuario,
+            comentarios: comentarios,
         });
     }
 };

@@ -2,13 +2,13 @@
 <html lang="es">
 <!-- Include Head -->
 
-<%-include('./partials/head', {titulo:'The Fantasy Candy Bar'})%> 
+<%-include('./partials/head', {titulo:'The Fantasy Candy Bar'})%>
 
 <body>
 	<!-- Header -->
-<%-include('partials/header')%>
+	<%-include('partials/header')%>
 	<!-- Header -->
-	
+
 	<!-- Banner -->
 	<div class="banner">
 		<img src="images/img-home-banner.jpg" alt="Banner de ofertas">
@@ -24,48 +24,49 @@
 			<!-- Show the "ultimos" products -->
 
 			<% for ( let i=0 ; i < productos.length; i++) { %>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/product/<%= productos[i].nombre %> ">
-							<figure class="product-box_image">
-								<img src= <%= productos[i].image %> alt="cafetera moulinex">
-							</figure>
-							<article class="product-box_data">
-								<h2> <%= productos[i].nombre %> </h2>
-								<p> <%= productos[i].descripcion%> </p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
-					</section>
-				</div>
-				<% } %>
-	<!-- Más comentados -->
-	<div class="container products-wrapper">
-		<div class="row">
-			<div class="col-12">
-				<h2 class="products-title">Más comentados</h2>
+			<div class="col-12 col-sm-6 col-lg-3">
+				<section class="product-box">
+					<a href="/product/<%= productos[i].nombre %> ">
+						<figure class="product-box_image">
+							<img src=<%= productos[i].image %> alt="cafetera moulinex">
+						</figure>
+						<article class="product-box_data">
+							<h2> <%= productos[i].nombre %> </h2>
+							<p> <%= productos[i].descripcion%> </p>
+							<p>Comentarios: 12</p>
+						</article>
+					</a>
+				</section>
 			</div>
-			<!-- Show the "ultimos" products -->
+			<% } %>
+			<!-- Más comentados -->
+			<div class="container products-wrapper">
+				<div class="row">
+					<div class="col-12">
+						<h2 class="products-title">Más comentados</h2>
+					</div>
+					<!-- Show the "ultimos" products -->
 
-			<% for ( let i=0 ; i < productos.length; i++) { %>
-				<div class="col-12 col-sm-6 col-lg-3">
-					<section class="product-box">
-						<a href="/product/<%= productos[i].nombre %>">
-							<figure class="product-box_image">
-								<img src= <%= productos[i].image %> alt="producto">
-							</figure>
-							<article class="product-box_data">
-								<h2> <%= productos[i].nombre %> </h2>
-								<p> <%= productos[i].descripcion%> </p>
-								<p>Comentarios: 12</p>
-							</article>
-						</a>
-					</section>
-				</div>
-				<% } %>
+					<% for ( let i=0 ; i < productos.length; i++) { %>
+					<div class="col-12 col-sm-6 col-lg-3">
+						<section class="product-box">
+							<a href="/product/<%= productos[i].nombre %>">
+								<figure class="product-box_image">
+									<img src=<%= productos[i].image %> alt="producto">
+								</figure>
+								<article class="product-box_data">
+									<h2> <%= productos[i].nombre %> </h2>
+									<p> <%= productos[i].descripcion%> </p>
+									<p>Comentarios: 12</p>
+								</article>
+							</a>
+						</section>
+					</div>
+					<% } %>
 
-	<!-- footer -->
-	<%-include('./partials/footer.ejs')%> 
-	<!-- /footer -->
-</body>	
+					<!-- footer -->
+					<%-include('./partials/footer.ejs')%>
+					<!-- /footer -->
+</body>
+
 </html>

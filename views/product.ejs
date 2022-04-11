@@ -11,7 +11,7 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= idProduct %>  </h2>
+			<h2 class="products-title"> <%= idProduct %> </h2>
 			<p class="product-detail-description">
 				<a href="/product/product-add">Agregar producto</a>
 			</p>
@@ -27,27 +27,27 @@
 						 <% } %> " alt="" class="product-detail-img">
 					<p class="product-detail-description">
 						<% for ( let i = 0 ; i < productos.length; i++) { %>
-							<% if (productos[i].nombre == idProduct) { %>
-							 <%= productos[i].descripcion %> 	
-							 <% } %>
-							 <% } %> 
+						<% if (productos[i].nombre == idProduct) { %>
+						<%= productos[i].descripcion %>
+						<% } %>
+						<% } %>
 					</p>
 				</article>
 				<div class="col-12 col-lg-4">
-					
+
 					<section class="comments">
 						<% for ( let i = 0 ; i < comentarios.length; i++) { %>
-							<article>
-								<img src="<%= comentarios[i].image %> " alt="">
-								<div class="data">
-									<p class="user">
-										<strong> <a href="/users/profile"> <%=comentarios[i].nombre%>  </a> </strong>
+						<article>
+							<img src="<%= comentarios[i].image %> " alt="">
+							<div class="data">
+								<p class="user">
+									<strong> <a href="/users/profile"> <%=comentarios[i].nombre%> </a> </strong>
 									<%=comentarios[i].opinion%>
-									</p>
-								</div>
-							</article>
-							
-							<% } %>
+								</p>
+							</div>
+						</article>
+
+						<% } %>
 					</section>
 
 					<form class="form" action="" method="get">

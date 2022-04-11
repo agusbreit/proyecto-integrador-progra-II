@@ -8,7 +8,6 @@ var usersController = {
     login: function (req, res) {
         res.render('login');
     },
-
     profile: function (req, res) {
         res.render('profile', {
             usuario: usuario,
@@ -21,6 +20,5 @@ var usersController = {
         });
     }
 };
-
 
 module.exports = usersController;

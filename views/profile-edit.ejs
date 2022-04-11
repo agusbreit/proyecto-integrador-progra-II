@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%-include('./partials/head.ejs', {titulo:'Editar perfil - The Fantasy'})%> 
+<%-include('./partials/head.ejs', {titulo:'Editar perfil - The Fantasy'})%>
+
 <body>
 	<!-- Header -->
 	<%-include('./partials/headerLogueado.ejs', {usuario: usuario.nombreUsuario})%>
@@ -15,21 +16,27 @@
 			</div>
 			<!-- Show the "ultimos" products -->
 			<section class="form-register">
-				<form method="get"name="form-register">
-				<input class="form-input" type="email" name="Nombre" id="nombres" placeholder="Ingrese su Email" value="<%=usuario.email%> ">
-				<input class="form-input" type="text" name="Usuario" id="nombres" placeholder="Ingrese su Usuario" value="<%=usuario.nombreUsuario%>" >
-				<input class="form-input" type="password" name="Contraseña" id="nombres" placeholder="Ingrese su Contraseña" value="<%=usuario.contrasena%>">
-				<input class="form-input" type="date" name="Nombre" id="nombres" placeholder="Ingrese su fecha de nacimiento" value="<%=usuario.nacimiento%>">
-				<input class="form-input" type="number" name="Nombre" id="nombres" placeholder="Ingrese su nro de documento" value="<%=usuario.documento%>">
-				<input class="form-input" type="file" name="Nombre" id="nombres" placeholder="Foto de perfil" value="">
-				<p>Estoy de acuerdo con <a href="#"> Terminos y condiciones</a></p>
-				<a class="btn mt-3 ml-4" href="/users/profile">EDITAR INFORMACIÓN</a>
+				<form method="get" name="form-register">
+					<input class="form-input" type="email" name="Nombre" id="nombres" placeholder="Ingrese su Email"
+						value="<%=usuario.email%> ">
+					<input class="form-input" type="text" name="Usuario" id="nombres" placeholder="Ingrese su Usuario"
+						value="<%=usuario.nombreUsuario%>">
+					<input class="form-input" type="password" name="Contraseña" id="nombres"
+						placeholder="Ingrese su Contraseña" value="<%=usuario.contrasena%>">
+					<input class="form-input" type="date" name="Nombre" id="nombres"
+						placeholder="Ingrese su fecha de nacimiento" value="<%=usuario.nacimiento%>">
+					<input class="form-input" type="number" name="Nombre" id="nombres"
+						placeholder="Ingrese su nro de documento" value="<%=usuario.documento%>">
+					<input class="form-input" type="file" name="Nombre" id="nombres" placeholder="Foto de perfil"
+						value="">
+					<p>Estoy de acuerdo con <a href="#"> Terminos y condiciones</a></p>
+					<a class="btn mt-3 ml-4" href="/users/profile">EDITAR INFORMACIÓN</a>
 				</form>
 			</section>
 
-	<!-- footer -->
-	<%-include('./partials/footer.ejs')%>
-	<!-- /footer -->
+			<!-- footer -->
+			<%-include('./partials/footer.ejs')%>
+			<!-- /footer -->
 </body>
 
 </html>
