@@ -12,12 +12,12 @@ var usersController = {
     profile: function (req, res) {
         res.render('profile', {
             usuario: usuario,
-            productos: productos
+            productos: productos,
         });
     },
     profileEdit: function (req, res) {
         res.render('profile-edit', {
-            usuario: usuario
+            usuario: usuario,
         });
     }
 };

@@ -8,13 +8,16 @@ var productController = {
             usuario: usuario,
             productos: productos,
             comentarios: comentarios,
-            idProduct: req.params.id
+            idProduct: req.params.id,
         });
 
     },
 
     productAdd: function (req, res) {
-        res.render('product-add', {usuario: usuario, comentarios: comentarios });
+        res.render('product-add', {
+            usuario: usuario, 
+            comentarios: comentarios, 
+        });
     }
 };
 
