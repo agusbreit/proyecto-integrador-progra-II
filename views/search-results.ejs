@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="es">
 <!-- Include Head -->
-<%-include('./partials/head.ejs', {titulo:'Resultado de busqueda - The Fantasy'})%> 
+<%-include('./partials/head.ejs', {titulo:'Resultado de busqueda - The Fantasy'})%>
 
 <body>
 	<!-- Header -->
@@ -17,16 +17,16 @@
 			<!-- Show the "ultimos" products -->
 			<div class="container products-wrapper">
 				<div class="d-flex align-items-center">
-					<h2 class="search-title"> <%= productos[1].nombre %>  </h2>
+					<h2 class="search-title"> <%= productos[1].nombre %> </h2>
 					<img src="<%= productos[1].image%>" alt="" class="search-image">
-					<p class="search-descrip">	<%= productos[1].descripcion %> 	
+					<p class="search-descrip"> <%= productos[1].descripcion %>
 				</div>
-						
-							
 
-	<!-- footer -->
-	<%-include('./partials/footer.ejs')%>
-	<!-- /footer -->
+
+
+				<!-- footer -->
+				<%-include('./partials/footer.ejs')%>
+				<!-- /footer -->
 </body>
 
 </html>

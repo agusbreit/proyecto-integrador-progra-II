@@ -1,6 +1,5 @@
-
 var usuario = require('../db/usuario');
-var productos= require('../db/productos');
+var productos = require('../db/productos');
 
 var usersController = {
     register: function (req, res) {
@@ -11,10 +10,15 @@ var usersController = {
     },
 
     profile: function (req, res) {
-        res.render('profile', {usuario: usuario, productos: productos} );
+        res.render('profile', {
+            usuario: usuario,
+            productos: productos
+        });
     },
     profileEdit: function (req, res) {
-        res.render('profile-edit', {usuario: usuario} );
+        res.render('profile-edit', {
+            usuario: usuario
+        });
     }
 };
 
