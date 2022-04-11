@@ -9,7 +9,7 @@ var productController = {
     },
 
     productAdd: function (req, res) {
-        res.render('product-add', {'usuario': usuario, 'comentarios': comentarios });
+        res.render('product-add', {usuario: usuario, comentarios: comentarios });
     }
 };
 
