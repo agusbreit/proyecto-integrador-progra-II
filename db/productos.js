@@ -1,5 +1,4 @@
-var productos = [
-   {
+var productos = [{
       nombre: 'Lenguetazos',
       descripcion: 'Caramelos lenguetazos en tres sabores: pinta lenguas, tutifruti y fiesta.',
       image: '/images/products/lenguetazo.png',

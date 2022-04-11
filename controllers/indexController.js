@@ -1,4 +1,4 @@
-var productos= require('../db/productos');
+var productos = require('../db/productos');
 
 var indexController = {
    index: function (req, res) {
