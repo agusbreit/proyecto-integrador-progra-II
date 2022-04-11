@@ -6,6 +6,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Condensed&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Amatic+SC:wght@700&display=swap');
 
 /*====== Variables ======*/
 :root {
@@ -82,6 +83,12 @@ hr {
 .main-header_home-link,
 .main-header_credit-link {
   display: block;
+}
+
+.site-name {
+  font-family: 'Amatic SC', cursive;
+  font-size: x-large;
+  text-align: center;
 }
 
 .main-header_credit-link {
