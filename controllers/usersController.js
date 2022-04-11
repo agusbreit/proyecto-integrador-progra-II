@@ -11,10 +11,10 @@ var usersController = {
     },
 
     profile: function (req, res) {
-        res.render('profile', {'usuario': usuario, 'productos': productos} );
+        res.render('profile', {usuario: usuario, productos: productos} );
     },
     profileEdit: function (req, res) {
-        res.render('profile-edit', {'usuario': usuario} );
+        res.render('profile-edit', {usuario: usuario} );
     }
 };
 
