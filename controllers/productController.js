@@ -14,10 +14,14 @@ var productController = {
     },
 
     productAdd: function (req, res) {
+<<<<<<< HEAD
         res.render('product-add', {
             'usuario': usuario,
             'comentarios': comentarios
         });
+=======
+        res.render('product-add', {usuario: usuario, comentarios: comentarios });
+>>>>>>> 52f0493aba6a5805acef61af530dfd1d7220aee4
     }
 };
 
