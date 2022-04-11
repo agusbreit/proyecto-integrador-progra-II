@@ -280,25 +280,6 @@ hr {
   box-shadow: 0 0 5px var(--green);
 }
 
-.search-title{
-  color: rgb(19, 191, 248);
-  font-family: 'Ubuntu Condensed', sans-serif;
-  font-size: 40px;
-  text-align: center;
-}
-
-.search-image{
-  width: 10cm;
-  margin-left: 2cm;
-}
-
-.search-descrip{
-  font-family: 'Poppins', sans-serif;
-  font-size: 20px;
-  text-align: center;
-  margin-left: 30px;
-}
-
 /*====== Footer ======*/
 .main-footer {
   background-color: #ffffff; 
