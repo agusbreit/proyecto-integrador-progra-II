@@ -1,4 +1,7 @@
-var productos = require('../db/productos');
+const db = require('../database/models')
+const productos = db.Producto
+const usuarios = db.Usuario
+//var productos = require('../db/productos');
 
 var indexController = {
    index: function (req, res) {

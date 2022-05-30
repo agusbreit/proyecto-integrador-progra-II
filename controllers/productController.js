@@ -1,6 +1,10 @@
-var usuario = require('../db/usuario');
-var productos = require('../db/productos');
-var comentarios = require('../db/comentarios');
+const db = require('../database/models')
+const productos = db.Producto
+const usuarios = db.Usuario
+const comentarios = db.Comentario
+//var usuario = require('../db/usuario');
+//var productos = require('../db/productos');
+//var comentarios = require('../db/comentarios');
 
 var productController = {
     index: function (req, res) {

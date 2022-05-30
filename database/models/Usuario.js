@@ -23,7 +23,7 @@ module.exports = function (sequelize, dataTypes){
         documento:{
             type:dataTypes.INTEGER
         },
-        image:{
+        imagen:{
             type:dataTypes.STRING
         },
         createdAt: {
