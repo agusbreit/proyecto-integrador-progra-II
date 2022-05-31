@@ -8,6 +8,8 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var productRouter = require('./routes/product');
 
+const db = require('./database/models'); //es nunevo lo agregue para cuando se necesite
+
 var app = express();
 
 // view engine setup

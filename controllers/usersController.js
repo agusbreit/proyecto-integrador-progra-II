@@ -1,5 +1,10 @@
-var usuario = require('../db/usuario');
-var productos = require('../db/productos');
+const db = require('../database/models')
+const productos = db.Producto
+const usuarios = db.Usuario
+const comentarios = db.Comentario
+
+//var usuario = require('../db/usuario');
+//var productos = require('../db/productos');
 
 var usersController = {
     register: function (req, res) {
