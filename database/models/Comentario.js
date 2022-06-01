@@ -48,9 +48,13 @@ module.exports = function (sequelize, dataTypes){
 
     //Relaciones entre tablas.
     Comentario.associate = function(models){
-        Genre.hasMany(models.Movie, {
-            as: 'movie',
-            foreignKey: 'genre_id'
+        Comentario.belongsTo(models.Usuario, {
+            as: 'usuario',
+            foreignKey: 'usuarioId'
+        })
+        Comentario.belongsTo(models.Producto, {
+            as: 'producto',
+            foreignKey: 'productoId'
         })
     }
 

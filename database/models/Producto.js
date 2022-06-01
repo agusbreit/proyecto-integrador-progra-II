@@ -50,7 +50,6 @@ module.exports = function (sequelize, dataTypes){
 
     //Relaciones entre tablas.
     Producto.associate = function(models){
-
         Producto.belongsTo(models.Usuario,{
             as:'usuario',
             foreignKey: 'UsuarioId'
@@ -59,7 +58,6 @@ module.exports = function (sequelize, dataTypes){
             as:'comentario',
             foreignKey:'ProductoId'
         })
-  
     }
 
     return Producto;
