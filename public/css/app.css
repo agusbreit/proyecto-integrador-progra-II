@@ -572,4 +572,10 @@ textarea.form-input {
     width: 95%;
     margin: auto;
   }
+
+  .col-11 {
+    color: #ff5b9a;
+    font-size: large;
+    font-weight: bold;
+  }
 }

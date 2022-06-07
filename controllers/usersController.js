@@ -27,16 +27,20 @@ var usersController = {
             //detectar errores de los datos del usuairo en el form 
             let errores = {}
             //chequear que el email no este vacio 
-            if(req.body.email == ''){
-                errores.message = "El email es obligatorio"  //le agrego la posicion message al obj literal errores
+            if(req.body.nombreUsuario == ''){
+                errores.message = "El nombre de usuario es obligatorio"  //le agrego la posicion message al obj literal errores
                 res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
                 return res.render('register');
+            } else if (req.body.email == '') {
+                    errores.message = "El email es obligatorio"  //le agrego la posicion message al obj literal errores
+                    res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                    return res.render('register');
             } else if (req.body.contrasena == ''){ 
                 errores.message = "La contraseña es obligatoria" 
                 res.locals.errores = errores 
                 return res.render('register');
-            } else if (req.body.contrasena.length < 4){ 
-                errores.message = "La contraseña tiene que ser de 4 o mas caracteres"  //le agrego la posicion message al obj literal errores
+            } else if (req.body.contrasena.length < 3){ 
+                errores.message = "La contraseña tiene que tener al menos 3 caracteres"  //le agrego la posicion message al obj literal errores
                 res.locals.errores = errores 
                 return res.render('register');   
             } else {
@@ -50,16 +54,24 @@ var usersController = {
                         res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
                         return res.render('register');
                     } else {
+                        usuarios.findOne({
+                            where: [{nombreUsuario: req.body.nombreUsuario}]
+                        })
+                        .then(function(user){
+                            if(user !== null ){
+                                errores.message = "Ese nombre de usuario ya existe, elija otro"  //le agrego la posicion message al obj literal errores
+                                res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                                return res.render('register');
+                            } else {
                          //Obtener los datos del formulario y armar objeto literal con los datos que quiero guardar 
-                    let user = {
-                        email: req.body.email,
-                        nombreUsuario: req.body.nombreUsuario,
-                        contrasena: bcrypt.hashSync(req.body.contrasena, 10), //vamos a hashear la contrasena que viene del form
-                        nacimiento: req.body.nacimiento,
-                        documento: req.body.documento,
-                        imagen: req.file.filename
-                    }
-                    //return res.send(user)
+                                let user = {
+                                    email: req.body.email,
+                                    nombreUsuario: req.body.nombreUsuario,
+                                    contrasena: bcrypt.hashSync(req.body.contrasena, 10), //vamos a hashear la contrasena que viene del form
+                                    nacimiento: req.body.nacimiento,
+                                    documento: req.body.documento,
+                                    imagen: req.file.filename
+                            }
                     //Guardar la info en la base de datos 
                     usuarios.create(user)//el primer userss llama al modelo que esta en db (los metodos siempre tienen que estar unidos a un modelo)
                         .then( function(respuesta){
@@ -71,9 +83,9 @@ var usersController = {
                 })
                 .catch (error => console.log(error)) 
             }
-    
-    
-    
+        })
+            .catch (error => console.log(error))  
+    }
     },
     login: function(req, res){
             //mostrar el form de registro

@@ -14,6 +14,13 @@
 			<div class="col-12">
 				<h2 class="products-title">Registrate</h2>
 			</div>
+			<div class="col-11">
+			<% if (locals.errores) {%> 
+				<%= errores.message  %>  <!-- agregarle una clase para css -->
+			<% } %> 
+			</div>
+			<br>
+			<br>
 			<section class="form-register">
 				<form action="/users/store" method="post" name="form-register" enctype="multipart/form-data">
 					<input class="form-input" type="email" name="email" id="nombres" placeholder="Ingrese su email">
