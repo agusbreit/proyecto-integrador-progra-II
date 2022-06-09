@@ -20,6 +20,11 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
+				<% if(locals.user){ %> 
+					<p>Hola <%= user.email %> </p>  
+				<% } else { %> 
+					<p>No estas logueado</p>
+				<% } %> 
 			</div>
 			<!-- Show the "ultimos" products -->
 

@@ -46,12 +46,25 @@ module.exports = function (sequelize, dataTypes){
     const Comentario = sequelize.define(alias, cols, config);
 
     //Relaciones entre tablas.
+<<<<<<< HEAD
     // Comentario.associate = function(models){
     //     Comentario.belongsTo(models.Movie, {
     //         as: 'movie',
     //         foreignKey: 'genre_id'
     //     })
     // }
+=======
+    Comentario.associate = function(models){
+        Comentario.belongsTo(models.Usuario, {
+            as: 'usuario',
+            foreignKey: 'usuarioId'
+        })
+        Comentario.belongsTo(models.Producto, {
+            as: 'producto',
+            foreignKey: 'productoId'
+        })
+    }
+>>>>>>> b2b42b6f4a33461c89bc61250d11b91ad658e735
 
     return Comentario;
 }
