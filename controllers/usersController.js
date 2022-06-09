@@ -85,35 +85,50 @@ var usersController = {
     }
     },
     login: function(req, res){
+         res.render('login');
             //mostrar el form de registro
             //Chequear que un usario esté logueado
-              if(req.session.user != undefined){
-                return res.redirect('/')
-            } else {  
-                return res.render('login');
-            }
+             // if(req.session.user != undefined){
+              //  return res.redirect('/')
+           // } else {  
+            //    return res.render('login');
+           // }
     },
      signIn: function(req, res){
-            //verificar el que el mail exista en labase de datos.
-                //Buscar al usuario usando el email del form de login.
+        let errores = {}
+
                 //Del usuario conseguido chequear que la contraseña del formulario coincida con la guardad el base.
                 //USamos compareSync 
                         //Si las contraseñas coinciden avisemos con mensaje que todo está ok. Cuando sepamos loguear redireccionamos a la home con el proceso de login completo.
                     //Controlar que el usario no esté logueado
           
-            users.findOne({
+            usuarios.findOne({
                 where: [{email: req.body.email}]
             })
                 .then(function(user){
-                    if(user){
-                        req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
-                        //Si el usuario tildó recordarme creo la cookie
-                           //si el usuario tildo recordarme, creo la cookie. traigo con req.body el checkbox para hacer el if
-                        res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} )
+                    //HAY ALGO MAL
+                        if(user){      
+                            let compare = bcrypt.compareSync(req.body.contrasena, user.contrasena); 
+                            if (compare) {
+                            req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
+                                //Si el usuario tildó recordarme creo la cookie
+                                //si el usuario tildo recordarme, creo la cookie. traigo con req.body el checkbox para hacer el if
+                                res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} )
+                                
+                                    console.log(req.session.user);
+                                    console.log(req.cookies.userId)
+                                    return res.redirect('/');
+                            } else {
+                                errores.message = "contraseña incorrecta"  //le agrego la posicion message al obj literal errores
+                                res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                                return res.render('login');   
+                            }
+                            
+                    } else{
+                        errores.message = "ese mail no existe"  //le agrego la posicion message al obj literal errores
+                                res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                                return res.render('login'); 
                     }
-                    console.log(req.session.user);
-                    return res.redirect('/')
-    
                 })
                 .catch(error => console.log(error))
             
