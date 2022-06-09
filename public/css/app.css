@@ -11,8 +11,8 @@
 /*====== Variables ======*/
 :root {
   --yellow: #ff5b9a;
-  --dark-blue: #ff8d23;
-  --light-blue: #ff8d23;;
+  --dark-blue: #23ff2e;
+  --light-blue: #ffc423;;
   --gray: black;
   --light-gray: #ebebeb;
   --green: blue;
@@ -51,7 +51,7 @@ a {
   text-decoration: none;
   color: inherit;
   font-family: 'Poppins', sans-serif;
-
+  font-weight: bold;
 }
 
 figure {
@@ -84,6 +84,11 @@ hr {
 .main-header_credit-link {
   display: block;
   
+}
+
+
+.logout form button{
+  color: red,
 }
 
 .site-name {
@@ -154,6 +159,27 @@ hr {
 .left-navbar,
 .right-navbar {
   font-size: 1.5em;
+ color: black;
+ font-family: 'Bebas Neue', cursive;
+}
+
+.right-navbar form {
+font-size: 1.5em;
+ color: black;
+ font-family: 'Bebas Neue', cursive;
+font-size: 15px;
+}
+
+.right-navbar form button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: bold;
+}
+
+.right-navbar form button:hover {
+  color: orange; }
+
+.right-navbar{
+  margin-left: 400px;
 }
 
 .logout{
@@ -173,8 +199,6 @@ hr {
   padding: 5px 0;
   border-bottom: solid 1px var(--gray);
 }
-
-
 
 /*====== Banner ======*/
 .banner {
