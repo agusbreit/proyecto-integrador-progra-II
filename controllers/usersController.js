@@ -17,7 +17,20 @@ var usersController = {
     },
    
     profile: function (req, res) {
-        res.render('profile'); //, {usuario: usuario,productos: productos,}
+        if(req.session.user == undefined){
+            return res.redirect('/')
+        } else {
+            productos.findAll({
+                where: [{usuarioId: req.session.user.id}],
+                //include: [ {association: 'usuario'} ],
+            
+            })
+                .then( function (productos){
+                    //return res.send(peliculas)
+                    return res.render('profile', { productos : productos });
+                })
+                .catch(error => console.log(error))
+        }
     },
     profileEdit: function (req, res) {
         res.render('profile-edit', {
