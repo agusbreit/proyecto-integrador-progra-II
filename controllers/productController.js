@@ -25,12 +25,12 @@ var productController = {
         let product = {
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            imagen: req.body.imagen
+            imagen: req.file.filename
         }
 
         productos.create(product)
         .then (function(respuesta){
-            return res.redirect ('/product')
+            return res.redirect ('/')
         })
         .catch(error => console.log(error))
     },
