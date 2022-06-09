@@ -48,8 +48,9 @@ app.use(function (req, res, next) {
         return next();
       })
       .catch(error => console.log(error))
+  } else {
+    return next();
   }
-  return next();
 })
 
 app.use('/', indexRouter);
