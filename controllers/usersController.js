@@ -89,14 +89,11 @@ var usersController = {
     }
     },
     login: function(req, res){
-         res.render('login');
-            //mostrar el form de registro
-            //Chequear que un usario esté logueado
-             // if(req.session.user != undefined){
-              //  return res.redirect('/')
-           // } else {  
-            //    return res.render('login');
-           // }
+            if(req.session.user != undefined){
+               return res.redirect('/')
+           } else {  
+            return res.render('login');
+            }
     },
      signIn: function(req, res){
         let errores = {}
@@ -110,18 +107,20 @@ var usersController = {
                 where: [{email: req.body.email}]
             })
                 .then(function(user){
-                    //HAY ALGO MAL
                         if(user){      
                             let compare = bcrypt.compareSync(req.body.contrasena, user.contrasena); 
                             if (compare) {
                             req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
                                 //Si el usuario tildó recordarme creo la cookie
                                 //si el usuario tildo recordarme, creo la cookie. traigo con req.body el checkbox para hacer el if
+                               let checked = req.body.checkbox.checked
+                                if(checked){
                                 res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} )
-                                
-                                    console.log(req.session.user);
-                                    console.log(req.cookies.userId)
-                                    return res.redirect('/');
+                                console.log(req.session.user);
+                                console.log(req.cookies.userId)
+                              } else { //CAMBIAR ESTA PARTE PORQUE NO FUNCIONA
+                                return res.redirect('/');
+                              }
                             } else {
                                 errores.message = "contraseña incorrecta"  //le agrego la posicion message al obj literal errores
                                 res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
@@ -130,8 +129,8 @@ var usersController = {
                             
                     } else{
                         errores.message = "ese mail no existe"  //le agrego la posicion message al obj literal errores
-                                res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
-                                return res.render('login'); 
+                        res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                        return res.render('login'); 
                     }
                 })
                 .catch(error => console.log(error))
