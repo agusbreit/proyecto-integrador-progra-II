@@ -2,11 +2,18 @@
 <html lang="es">
 <!-- Include Head -->
 
+
 <%-include('./partials/head', {titulo:'The Fantasy Candy Bar'})%>
 
 <body>
-	<!-- Header -->
-	<%-include('partials/header')%>
+	<!-- Header-->
+
+	<% if (locals.user) { %> 
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>  
+
 	<!-- Header -->
 
 	<!-- Banner -->

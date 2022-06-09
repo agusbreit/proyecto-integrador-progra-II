@@ -6,7 +6,11 @@
 
 <body>
 	<!-- Header -->
-	<%-include('./partials/header.ejs')%>
+	<% if (locals.user) { %> 
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>  
 	<!-- /Header -->
 
 	<!-- Novedades -->
@@ -24,6 +28,7 @@
 				<form action="/users/login" method="POST">
 					<div><input type="text" name="email" value="" placeholder="email"></div>
 					<div><input type="password" name="contrasena" value="" placeholder="contraseña"></div>
+					<div><input type="checkbox" name="checkbox" value="" placeholder="recordarme"> Recordarme   </div>
 					<button type="submit">Ingresar</button>
 				  </form>
 			</section>

@@ -16,11 +16,13 @@ var productController = {
         });
     },
     productAdd: function (req, res) {
-        res.render('product-add', {
-            // usuario: usuario,
-            comentarios: comentarios,
-        });
+        if(req.session.user == undefined){
+            return res.redirect('/')
+        } else {  
+         return res.render('productAdd');
+         };
     },
+    
     post: function(req, res){
         let product = {
             nombre: req.body.nombre,
