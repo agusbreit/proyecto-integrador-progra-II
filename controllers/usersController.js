@@ -9,7 +9,11 @@ const bcrypt = require('bcryptjs');
 
 var usersController = {
     register: function (req, res) {
-        res.render('register');
+        if(req.session.user != undefined){
+            return res.redirect('/')
+        } else {
+            return res.render('register')
+        }
     },
    
     profile: function (req, res) {
