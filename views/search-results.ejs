@@ -18,13 +18,13 @@
 			<% for ( let i=0 ; i < 4; i++) { %>
 			<div class="col-12 col-sm-6 col-lg-3">
 				<section class="product-box">
-					<a href="/product/<%= productos[i].nombre %> ">
+					<a href="/product/<%= productos[i]//.nombre %> ">
 						<figure class="product-box_image">
-							<img src=<%= productos[i].image %> alt="cafetera moulinex">
+							<img src=<%= productos[i]//.image %> alt="">
 						</figure>
 						<article class="product-box_data">
-							<h2> <%= productos[i].nombre %> </h2>
-							<p> <%= productos[i].descripcion%> </p>
+							<h2> <%= productos[i]//.nombre %> </h2>
+							<p> <%= productos[i]//.descripcion%> </p>
 							<p>Comentarios: 12</p>
 						</article>
 					</a>

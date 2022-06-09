@@ -41,18 +41,17 @@ module.exports = function (sequelize, dataTypes){
     let config = {
         tableName: 'comentarios', //Nombre de la tabla en la base de datos.
         timestamps: true, //Si la tabla no tiene los campos createdAt y updatedAt
-        underscored: false, //Si la tabla tiene columnas con nombres usando guiones bajos.
     }
 
     const Comentario = sequelize.define(alias, cols, config);
 
     //Relaciones entre tablas.
-    Comentario.associate = function(models){
-        Genre.hasMany(models.Movie, {
-            as: 'movie',
-            foreignKey: 'genre_id'
-        })
-    }
+    // Comentario.associate = function(models){
+    //     Comentario.belongsTo(models.Movie, {
+    //         as: 'movie',
+    //         foreignKey: 'genre_id'
+    //     })
+    // }
 
     return Comentario;
 }

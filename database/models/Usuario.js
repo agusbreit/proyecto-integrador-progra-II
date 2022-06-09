@@ -34,7 +34,7 @@ module.exports = function (sequelize, dataTypes){
             type: dataTypes.DATE,
             allowNull: true
         },
-        delatedAt: {
+        deletedAt: {
             type: dataTypes.DATE,
             allowNull: true
         },
