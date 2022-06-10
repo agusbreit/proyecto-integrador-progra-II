@@ -191,6 +191,7 @@ var usersController = {
                               
                                 if(req.body.checkbox.checked){
                                 res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} )
+                                return res.redirect('/');
                               } else { //CAMBIAR ESTA PARTE PORQUE NO FUNCIONA
                                 return res.redirect('/');
                               }
