@@ -188,11 +188,9 @@ var usersController = {
                             req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
                                 //Si el usuario tildó recordarme creo la cookie
                                 //si el usuario tildo recordarme, creo la cookie. traigo con req.body el checkbox para hacer el if
-                               let checked = req.body.checkbox.checked
-                                if(checked){
+                              
+                                if(req.body.checkbox.checked){
                                 res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} )
-                                console.log(req.session.user);
-                                console.log(req.cookies.userId)
                               } else { //CAMBIAR ESTA PARTE PORQUE NO FUNCIONA
                                 return res.redirect('/');
                               }
