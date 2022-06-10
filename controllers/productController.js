@@ -19,7 +19,7 @@ var productController = {
         if(req.session.user == undefined){
             return res.redirect('/')
         } else {  
-         return res.render('productAdd');
+         return res.render('product-add');
          };
     },
     
@@ -27,7 +27,8 @@ var productController = {
         let product = {
             nombre: req.body.nombre,
             descripcion: req.body.descripcion,
-            imagen: req.file.filename
+            imagen: req.file.filename,
+            usuarioId: req.session.user.id
         }
 
         productos.create(product)

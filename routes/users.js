@@ -24,11 +24,13 @@ router.get('/login', usersController.login);
 
 router.post('/login', usersController.signIn);
 
-router.get('/profile', usersController.profile);
+router.get('/profile/:id?', usersController.profile);
 
 router.get('/profile-edit', usersController.profileEdit);
 
 router.post('/store', upload.single('imagen'), usersController.store); 
+
+router.post('/edit', upload.single('imagen'), usersController.edit); 
 
 router.post('/logout', usersController.logout);
 

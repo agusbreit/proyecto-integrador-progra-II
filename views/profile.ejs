@@ -21,17 +21,24 @@
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%=locals.user.nombreUsuario%>
-						<a href="/users/profile-edit">
-							<i class="fas fa-cog"></i>
-						</a>
-					</h1>
+					<h1 class="main-title"><%=locals.user.nombreUsuario%></h1>
+					<% if (locals.user.nombreUsuario == nombreUser){ %> 
+						<a href="/users/profile-edit"><i class="fas fa-cog"></i></a>
+						<% } else { %> 
+							<a href="/users/profile"></a>
+						<% }  %>
 					<a class="btn mt-3 ml-4" href="">Seguir</a>
 				</div>
 				<div>
 					<ul class="">
 						<h4><%=locals.user.email%></h4>
-						<li>Productos:<%=productos%></li> <!-- NO ANDA LA ASOCIACION -->
+						<% if(productos.length > 0){ %> 
+						<% for ( let i=0 ; i < productos.length; i++) { %>
+						<li>Producto: <a href="/product/<%=productos[i].dataValues.nombre%>"><%=productos[i].dataValues.nombre%></a></li> <!-- NO ANDA LA ASOCIACION -->
+						<% } %> 
+						<% } else { %> 
+						<li>Producto: No publicó productos aún</li>
+						<% } %> 
 						<li>200 seguidores</li>
 						<li>300 comentarios</li>
 					</ul>

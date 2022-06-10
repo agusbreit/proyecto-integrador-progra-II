@@ -15,27 +15,89 @@ var usersController = {
             return res.render('register')
         }
     },
-   
     profile: function (req, res) {
         if(req.session.user == undefined){
             return res.redirect('/')
         } else {
+
             productos.findAll({
                 where: [{usuarioId: req.session.user.id}],
-                //include: [ {association: 'usuario'} ],
-            
+              //  include: [ {association: 'usuario'} ],
             })
                 .then( function (productos){
-                    //return res.send(peliculas)
-                    return res.render('profile', { productos : productos });
+                    console.log(productos)
+                    return res.render('profile', { productos : productos, nombreUser: req.params.id });
                 })
                 .catch(error => console.log(error))
         }
     },
     profileEdit: function (req, res) {
-        res.render('profile-edit', {
-            usuario: usuario,
-        });
+        if(req.session.user == undefined){
+            return res.redirect('/')
+        } else {
+            return res.render('profile-edit')
+        }
+    },
+    edit: function (req, res) {
+       //detectar errores de los datos del usuairo en el form 
+       let errores = {}
+       if(req.body.nombreUsuario == ''){
+           errores.message = "El nombre de usuario es obligatorio"  //le agrego la posicion message al obj literal errores
+           res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+           return res.render('profile-edit');
+       } else if (req.body.email == '') {
+               errores.message = "El email es obligatorio"  //le agrego la posicion message al obj literal errores
+               res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+               return res.render('profile-edit');
+       } else if (req.body.contrasena == ''){ 
+           errores.message = "La contraseña es obligatoria" 
+           res.locals.errores = errores 
+           return res.render('profile-edit');
+       } else if (req.body.contrasena.length < 3){ 
+           errores.message = "La contraseña tiene que tener al menos 3 caracteres"  //le agrego la posicion message al obj literal errores
+           res.locals.errores = errores 
+           return res.render('profile-edit');  
+       } else if (req.body.contrasenaAnterior == ''){ 
+            errores.message = "Escriba su contraseña anterior"  //le agrego la posicion message al obj literal errores
+            res.locals.errores = errores 
+            return res.render('profile-edit');   
+       } else {
+            //chequear que la contrasena anterior es correcta 
+            usuarios.findOne({
+               where: [{email: req.body.email}]
+           })
+           .then(function(user){
+                if(user){
+                 let compare = bcrypt.compareSync(req.body.contrasenaAnterior, user.contrasena)
+                    if (compare) {
+                        let user = {
+                            email: req.body.email,
+                            nombreUsuario: req.body.nombreUsuario,
+                            contrasena: bcrypt.hashSync(req.body.contrasena, 10), //vamos a hashear la contrasena que viene del form
+                            nacimiento: req.body.nacimiento,
+                            documento: req.body.documento,
+                            imagen: req.file.filename
+                        }
+                        usuarios.update(user, {
+                            where: [{id: req.body.id}]
+                        })
+                            .then( function(user){
+                            return res.redirect('/')
+                        })
+                            .catch (error => console.log(error)) 
+                    } else {
+                        errores.message = "La contraseña anterior es incorrecta"  //le agrego la posicion message al obj literal errores
+                        res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                        return res.render('profile-edit');
+                    }
+                } else {
+                    errores.message = "El mail nunca fue registrado"  //le agrego la posicion message al obj literal errores
+                    res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                    return res.render('register');
+                }
+            })
+        .catch (error => console.log(error)) 
+        }
     },
     store: function (req,res) {
             //detectar errores de los datos del usuairo en el form 
@@ -77,7 +139,7 @@ var usersController = {
                                 res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
                                 return res.render('register');
                             } else {
-                         //Obtener los datos del formulario y armar objeto literal con los datos que quiero guardar 
+                                //Obtener los datos del formulario y armar objeto literal con los datos que quiero guardar 
                                 let user = {
                                     email: req.body.email,
                                     nombreUsuario: req.body.nombreUsuario,
@@ -120,7 +182,7 @@ var usersController = {
                 where: [{email: req.body.email}]
             })
                 .then(function(user){
-                        if(user){      
+                        if(user){   
                             let compare = bcrypt.compareSync(req.body.contrasena, user.contrasena); 
                             if (compare) {
                             req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
