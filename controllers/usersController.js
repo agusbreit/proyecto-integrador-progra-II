@@ -21,15 +21,29 @@ var usersController = {
         } else {
 
             productos.findAll({
-                where: [{usuarioId: req.session.user.id}],
+                where: [{usuarioId: req.params.id}],
               //  include: [ {association: 'usuario'} ],
             })
                 .then( function (productos){
-                    console.log(productos)
-                    return res.render('profile', { productos : productos, nombreUser: req.params.id });
-                })
+                    usuarios.findOne({
+                        where: [{id: req.params.id}],
+                      //  include: [ {association: 'usuario'} ],
+                    })
+                                .then( function (usuarios){
+                                    console.log(usuarios)
+                                    return res.render('profile', { usuarios : usuarios, productos : productos });
+                                })
+                                .catch(error => console.log(error))
+                        })
                 .catch(error => console.log(error))
-        }
+        
+          
+            };
+    },
+    seguir: function name(params) {
+        usuarios.findOne({
+            // EL QUE ESTA INICIADO SESSION SIGUE AL  DEL REQ PARAMS
+        })
     },
     profileEdit: function (req, res) {
         if(req.session.user == undefined){
@@ -82,7 +96,9 @@ var usersController = {
                             where: [{id: req.body.id}]
                         })
                             .then( function(user){
+
                             return res.redirect('/')
+                            
                         })
                             .catch (error => console.log(error)) 
                     } else {

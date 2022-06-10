@@ -22,7 +22,6 @@ var productController = {
          return res.render('product-add');
          };
     },
-    
     post: function(req, res){
         let product = {
             nombre: req.body.nombre,

@@ -16,22 +16,27 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="/../public/images/fotosPerfil/<%=locals.user.imagen%>" alt="foto de perfil" class="foto-perfil"> 
+				<img src="/../public/images/fotosPerfil/<%=usuarios.dataValues.imagen%>" alt="foto de perfil" class="foto-perfil"> 
 		<!-- NO ANDA LA FOTO -->
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%=locals.user.nombreUsuario%></h1>
-					<% if (locals.user.nombreUsuario == nombreUser){ %> 
+					<h1 class="main-title"><%=usuarios.dataValues.nombreUsuario%></h1>
+					<% if (locals.user.nombreUsuario == usuarios.dataValues.nombreUsuario){ %> <!-- puedo hacer que cada usuario tengo un :id en la ulr y comparar ese parametro con el locals.user -->
 						<a href="/users/profile-edit"><i class="fas fa-cog"></i></a>
 						<% } else { %> 
 							<a href="/users/profile"></a>
+							<form  action="/users/seguir" method="post">
+							<button class="btn mt-3 ml-4" type="submit" name="seguir">Seguir</button>
 						<% }  %>
-					<a class="btn mt-3 ml-4" href="">Seguir</a>
+				
+					
+
+					</form>
 				</div>
 				<div>
 					<ul class="">
-						<h4><%=locals.user.email%></h4>
+						<h4><%=usuarios.dataValues.email%></h4>
 						<% if(productos.length > 0){ %> 
 						<% for ( let i=0 ; i < productos.length; i++) { %>
 						<li>Producto: <a href="/product/<%=productos[i].dataValues.nombre%>"><%=productos[i].dataValues.nombre%></a></li> <!-- NO ANDA LA ASOCIACION -->

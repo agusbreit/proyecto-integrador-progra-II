@@ -36,6 +36,7 @@ app.use(function(req,res,next){
   return next();
 })
 
+
 //preguntamos por la cookie y la vinculamos con la session
 app.use(function (req, res, next) {
   if (req.cookies.userId != undefined && req.session.user == undefined) { //necesito que el usuario este fuera de la sesion y que quiere iniciar directamente porque lo recorde
