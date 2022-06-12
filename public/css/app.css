@@ -604,4 +604,16 @@ textarea.form-input {
     font-size: large;
     font-weight: bold;
   }
+
+  .checkbox{
+  width: 20px;
+  height: 20px;
+  margin-bottom: 15px;
+  }
+
+  .recordarme{
+    display: inline-flex;
+    font-size: 15px;
+    margin-bottom: 20px;
+  }
 }

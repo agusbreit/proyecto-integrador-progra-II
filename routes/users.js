@@ -32,7 +32,7 @@ router.post('/store', upload.single('imagen'), usersController.store);
 
 router.post('/edit', upload.single('imagen'), usersController.edit); 
 
-router.post('/seguir', usersController.seguir);
+router.post('/seguir/:id?', usersController.seguir);
 
 router.post('/logout', usersController.logout);
 

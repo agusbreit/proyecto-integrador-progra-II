@@ -2,7 +2,9 @@ const db = require('../database/models')
 const productos = db.Producto
 const usuarios = db.Usuario
 const comentarios = db.Comentario
+const seguidores = db.Seguidor
 const bcrypt = require('bcryptjs');
+//const { where } = require('sequelize/types');
 
 //var usuario = require('../db/usuario');
 //var productos = require('../db/productos');
@@ -22,16 +24,20 @@ var usersController = {
 
             productos.findAll({
                 where: [{usuarioId: req.params.id}],
-              //  include: [ {association: 'usuario'} ],
             })
                 .then( function (productos){
                     usuarios.findOne({
-                        where: [{id: req.params.id}],
-                      //  include: [ {association: 'usuario'} ],
+                        where: [{id: req.params.id}],                 
                     })
                                 .then( function (usuarios){
-                                    console.log(usuarios)
-                                    return res.render('profile', { usuarios : usuarios, productos : productos });
+                                    seguidores.findAll({
+                                        where:[{seguidoId: req.params.id}]
+                                    })
+                                        .then(function(seguidores){
+                                            console.log(seguidores)
+                                            return res.render('profile', { usuarios : usuarios, productos : productos, seguidores : seguidores });
+                                        })
+                                   
                                 })
                                 .catch(error => console.log(error))
                         })
@@ -40,11 +46,35 @@ var usersController = {
           
             };
     },
-    seguir: function name(params) {
-        usuarios.findOne({
-            // EL QUE ESTA INICIADO SESSION SIGUE AL  DEL REQ PARAMS
+    seguir: function (req,res) {
+        seguidores.findOne({
+    //     include:[{association: 'seguidor'}, {association: 'seguido'}],
+        where: [{ seguidorId: req.session.user.id, seguidoId: req.params.id }]
         })
-    },
+        .then(function(user){
+            let errores = {}
+            if (user) {
+            console.log(user)
+               // errores.message = "Ya lo seguis"  //le agrego la posicion message al obj literal errores
+               // res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+               // return res.render('profile');
+           } else {
+            seguidores.create({
+                   seguidorId: req.session.user.id,
+                   seguidoId: req.params.id
+                })
+                .then( function(respuesta){
+                return res.redirect('/')
+                 })
+             .catch (error => console.log(error))  
+        }
+        })
+        .catch (error => console.log(error))  
+
+               //   
+           
+  
+},
     profileEdit: function (req, res) {
         if(req.session.user == undefined){
             return res.redirect('/')
