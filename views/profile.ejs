@@ -22,13 +22,17 @@
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%=usuarios.dataValues.nombreUsuario%></h1>
-					<% if (locals.user.nombreUsuario == usuarios.dataValues.nombreUsuario){ %> 
+					<% if (locals.user) {%>
+					 <% if(locals.user.nombreUsuario == usuarios.dataValues.nombreUsuario){ %> 
 						<a href="/users/profile-edit"><i class="fas fa-cog"></i></a>
 						<% } else { %> 
 							<a href="/users/profile"></a>
 							<form  action="/users/seguir/<%= usuarios.dataValues.id %> " method="post">
 							<button class="btn mt-3 ml-4" type="submit" name="seguir">Seguir</button>
 						<% }  %>
+					<% } else { %> 
+						<a href="/users/profile"></a>
+					<% }  %>
 				
 					</form>
 				</div>

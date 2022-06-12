@@ -18,9 +18,9 @@ var usersController = {
         }
     },
     profile: function (req, res) {
-        if(req.session.user == undefined){
-            return res.redirect('/')
-        } else {
+       // if(req.session.user == undefined){
+        //    return res.redirect('/')
+       // } else {
 
             productos.findAll({
                 where: [{usuarioId: req.params.id}],
@@ -44,7 +44,7 @@ var usersController = {
                 .catch(error => console.log(error))
         
           
-            };
+          //  };
     },
     seguir: function (req,res) {
         seguidores.findOne({
