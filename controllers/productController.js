@@ -47,10 +47,41 @@ var productController = {
             where: [{nombre: id}]
         }) 
         .then (function (elProducto){
+        comentarios.findAll({
+            include: [{ association: "usuario"}, { association: "producto"}]
+        })
+        .then(function(comentarios){
             console.log(elProducto);
-            return res.render ('product' , {productos : elProducto})
+            return res.render ('product' , {productos : elProducto, comentarios : comentarios})
+        })
+        })
+
+    },
+    delete: function(req, res){
+        productos.destroy({
+            where: {
+                id : req.params.id
+            }
+        })
+        .then (function(borrar){
+            return res.redirect ('/')
+        })
+    },
+    comentario: function (req, res) {
+        let comentario = {
+            comentario: req.body.comentario,
+            usuarioId: req.session.user.id,
+            productoId: req.params.id
+        }
+        comentarios.create(comentario)
+        .then (function(respuesta){
+            return res.redirect ('/')
         })
     }
-};
+    
+
+}
+
+    
 // 
 module.exports = productController;
