@@ -48,10 +48,11 @@ var productController = {
         }) 
         .then (function (elProducto){
         comentarios.findAll({
-            include: [{ association: "usuario"}, { association: "producto"}]
+            include: [{ association: "usuario"}, { association: "producto"}],
+            where: [{productoId: elProducto.id}]
         })
         .then(function(comentarios){
-            console.log(elProducto);
+            console.log(comentarios)
             return res.render ('product' , {productos : elProducto, comentarios : comentarios})
         })
         })
