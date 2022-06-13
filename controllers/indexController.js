@@ -11,20 +11,13 @@ var indexController = {
       });
    },
    searchResults: function (req, res) {
-      let search = req.query
+      let search = req.query.search
       console.log(search);
       productos.findAll({
-         where: [{
-            nombre: {
-               [op.like]: `%${search}%`
-            }
-         }, {
-            descripcion: {
-               [op.like]: `%${search}%`
-            }
-         }]
+         where: [{ nombre: { [op.like]: `%${search}%` }} ]
       }).then(function (unosProductos) {
-         if (unosProductos != "") {
+         console.log(unosProductos)
+         if (unosProductos.length > 0) {
             console.log(unosProductos);
             return res.render('search-results', {
                productos: unosProductos
