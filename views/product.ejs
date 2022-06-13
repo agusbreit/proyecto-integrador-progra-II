@@ -27,26 +27,24 @@
 					</p>
 					<h1 class="nombre"><a href="/users/profile/<%= productos.usuario.id %> ">Subido por <%= productos.usuario.nombreUsuario %> </h1> </a>
 					<p> </p>
+
+					<% if (locals.user) { %> 
+						<% if (locals.user.id == productos.usuario.id) { %> 
+						<form action="/product/delete/<%= productos.id %> " method="post">
+						<button class="borrar" type="submit"> Borrar producto </button>
+						</form> 
+						<% } %>
+
+
 				</article>
 	     	<!-- if (userId = cookieId) {
 			
-<<<<<<< HEAD
 		} 
 		-->
-		<% if (locals.user) { %> 
-		<% if (locals.user.id == productos.usuario.id) { %> 
-		<form action="/product/delete/<%= productos.id %> " method="post">
-		<button class="btn mt-3 ml-4" type="submit"> Borrar </button>
-		</form> 
-		<% } %>
-=======
-	     	} 
-	        	-->
-		<button class="buy-now-button" type="submit"> Borrar </button> 
-				<div class="col-12 col-lg-4">
->>>>>>> 5d716be47a913d3cb4c0cf6520a408e93657bc5f
+	
 
 		<section class="comments">
+			<h2 class="comentarios"> COMENTARIOS </h2>
 			<% for ( let i = 0 ; i < comentarios.length; i++) { %>
 			<article>
 				<img src="/images/fotosPerfil/<%=comentarios[i].usuario.imagen %> " alt="">
@@ -60,18 +58,12 @@
 			<% } %>
 		</section> 
 
-<<<<<<< HEAD
 	
 		<% } %>  
 				<div class="col-12 col-lg-4">
 					<form class="form" action="/product/comentario/<%= productos.id %> " method="post">
-						<input class="form-input" name="comentario" type="text" value="" placeholder="Agregar comentario">
+						<input class="form-input1" name="comentario" type="text" value="" placeholder="Agregar comentario">
 						<button class="buy-now-button" type="submit"> AGREGAR COMENTARIO </button>
-=======
-					<form class="form" action="" method="get">
-						<input class="form-input1" type="text" value="" placeholder="Agregar comentario">
-						<a href="/users/register" type="submit" class="buy-now-button">AGREGAR COMENTARIO</a>
->>>>>>> 5d716be47a913d3cb4c0cf6520a408e93657bc5f
 					</form>
 
 					<!-- PARA LA SEGUNDA PARTE 
