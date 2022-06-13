@@ -20,8 +20,8 @@ var upload = multer({storage: storage})
 router.get('/product-add', productController.productAdd)
 
 router.post('/product-add', upload.single('imagen') , productController.post)
+router.get('/:id?', productController.producto);
 
-router.get('/:id?', productController.index);
 
 // router.post('/:id?', productController.delete);
 

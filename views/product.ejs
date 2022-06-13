@@ -15,23 +15,15 @@
 	<!-- product detail -->
 	<div class="container products-wrapper">
 		<div class="d-flex align-items-center">
-			<h2 class="products-title"> <%= idProduct %> </h2>
+			<h2 class="products-title"> <%= productos.nombre %> </h2>
 		</div>
 
 		<div class="product-detail">
 			<div class="row">
 				<article class="col-12 col-lg-8 product-detail-info">
-					<img src="<% for ( let i = 0 ; i < productos.length; i++) { %>
-						<% if (productos[i].nombre == idProduct) { %>
-						 <%= productos[i].image %> 	
-						 <% } %>
-						 <% } %> " alt="" class="product-detail-img">
+					<img src="/images/products/<%= productos.imagen %> " alt="" class="product-detail-img">
 					<p class="product-detail-description">
-						<% for ( let i = 0 ; i < productos.length; i++) { %>
-						<% if (productos[i].nombre == idProduct) { %>
-						<%= productos[i].descripcion %>
-						<% } %>
-						<% } %>
+						<%= productos.descripcion %>
 					</p>
 				</article>
 		<!-- if (userId = cookieId) {
@@ -41,19 +33,19 @@
 		<button class="buy-now-button" type="submit"> Borrar </button> 
 				<div class="col-12 col-lg-4">
 
-					<section class="comments">
-						<% for ( let i = 0 ; i < comentarios.length; i++) { %>
+					<!-- <section class="comments">
+						<% //for ( let i = 0 ; i < comentarios.length; i++) { %>
 						<article>
-							<img src="<%= comentarios[i].image %> " alt="">
+							<img src="<%=//comentarios[i].image %> " alt="">
 							<div class="data">
 								<p class="user">
-									<strong> <a href="/users/profile"> <%=comentarios[i].nombre%> </a> </strong>
-									<%=comentarios[i].opinion%>
+									<strong> <a href="/users/profile"> <%=//comentarios[i].nombre%> </a> </strong>
+									<%=//comentarios[i].opinion%>
 								</p>
 							</div>
 						</article>
-						<% } %>
-					</section>
+						<% //} %>
+					</section> --> 
 
 					<form class="form" action="" method="get">
 						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
