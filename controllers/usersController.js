@@ -231,13 +231,12 @@ var usersController = {
                             req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
                                 //Si el usuario tildó recordarme creo la cookie
                                 //si el usuario tildo recordarme, creo la cookie. traigo con req.body el checkbox para hacer el if
-                              
-                                if(req.body.checkbox.checked){
-                                res.cookie('userId',user.dataValues.id,{maxAge: 1000*60*100} )
+                                if (req.body.recordarme) {
+                                    res.cookie('userId', user.dataValues.id, {
+                                        maxAge: 1000 * 60 * 100
+                                    })
+                                } 
                                 return res.redirect('/');
-                              } else { //CAMBIAR ESTA PARTE PORQUE NO FUNCIONA
-                                return res.redirect('/');
-                              }
                             } else {
                                 errores.message = "contraseña incorrecta"  //le agrego la posicion message al obj literal errores
                                 res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
