@@ -19,27 +19,34 @@ var indexController = {
       })
    },
    searchResults: function (req, res) {
-      let search = req.query.id
+      let search = req.query.search
       console.log(search);
       productos.findAll({
-         where: [{
-            nombre: {
-               [op.like]: `%${search}%`
-            }
-         }, {
-            descripcion: {
-               [op.like]: `%${search}%`
-            }
-         }]
+         where: {
+            [op.or]: [{
+                  nombre: {
+                     [op.like]: `%${search}%`
+                  }
+               },
+               {
+                  descripcion: {
+                     [op.like]: `%${search}%`
+                  }
+               }
+            ]
+         }
       }).then(function (unosProductos) {
-         if (unosProductos.length > 0) {
+         console.log(unosProductos);
+         if (unosProductos != "") {
             console.log(unosProductos);
             return res.render('search-results', {
                productos: unosProductos
             })
          } else {
             let message = "no lo pudimos encontrar"
-            res.render("error" , {message: message})
+            res.render("error", {
+               message: message
+            })
          }
       })
    },
