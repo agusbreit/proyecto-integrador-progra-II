@@ -37,7 +37,7 @@
 							<img src= "/images/products/<%=productos[i].imagen %> " alt="foto producto">
 						</figure>
 						<article class="product-box_data">
-							<h2> <a href="/product/<%= productos[i].nombre %> "><%= productos[i].nombre %> </h2> </a>
+							<h2 class="producto"> <a href="/product/<%= productos[i].nombre %> "><%= productos[i].nombre %> </h2> </a>
 							<p> <%= productos[i].descripcion%> </p>
 							<p><a href="/users/profile/<%= productos[i].usuario.id%> "> Subido por: <%= productos[i].usuario.nombreUsuario %> </p> </a>
 

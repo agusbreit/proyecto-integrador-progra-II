@@ -25,33 +25,53 @@
 					<p class="product-detail-description">
 						<%= productos.descripcion %>
 					</p>
-					<a href="/users/profile/<%= productos.usuario.id %> ">Subido por <%= productos.usuario.nombreUsuario %></a>
+					<h1 class="nombre"><a href="/users/profile/<%= productos.usuario.id %> ">Subido por <%= productos.usuario.nombreUsuario %> </h1> </a>
 					<p> </p>
 				</article>
-		<!-- if (userId = cookieId) {
+	     	<!-- if (userId = cookieId) {
 			
+<<<<<<< HEAD
 		} 
 		-->
+		<% if (locals.user) { %> 
+		<% if (locals.user.id == productos.usuario.id) { %> 
+		<form action="/product/delete/<%= productos.id %> " method="post">
+		<button class="btn mt-3 ml-4" type="submit"> Borrar </button>
+		</form> 
+		<% } %>
+=======
+	     	} 
+	        	-->
 		<button class="buy-now-button" type="submit"> Borrar </button> 
 				<div class="col-12 col-lg-4">
+>>>>>>> 5d716be47a913d3cb4c0cf6520a408e93657bc5f
 
-					<!-- <section class="comments">
-						<% //for ( let i = 0 ; i < comentarios.length; i++) { %>
-						<article>
-							<img src="<%=//comentarios[i].image %> " alt="">
-							<div class="data">
-								<p class="user">
-									<strong> <a href="/users/profile"> <%=//comentarios[i].nombre%> </a> </strong>
-									<%=//comentarios[i].opinion%>
-								</p>
-							</div>
-						</article>
-						<% //} %>
-					</section> --> 
+		<section class="comments">
+			<% for ( let i = 0 ; i < comentarios.length; i++) { %>
+			<article>
+				<img src="/images/fotosPerfil/<%=comentarios[i].usuario.imagen %> " alt="">
+				<div class="data">
+					<p class="user">
+						<strong> <a href="/users/profile/<%= comentarios[i].usuario.id %> "> <%=comentarios[i].usuario.nombreUsuario%> </a> </strong>
+						<%=comentarios[i].comentario%>
+					</p>
+				</div>
+			</article>
+			<% } %>
+		</section> 
 
+<<<<<<< HEAD
+	
+		<% } %>  
+				<div class="col-12 col-lg-4">
+					<form class="form" action="/product/comentario/<%= productos.id %> " method="post">
+						<input class="form-input" name="comentario" type="text" value="" placeholder="Agregar comentario">
+						<button class="buy-now-button" type="submit"> AGREGAR COMENTARIO </button>
+=======
 					<form class="form" action="" method="get">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<input class="form-input1" type="text" value="" placeholder="Agregar comentario">
 						<a href="/users/register" type="submit" class="buy-now-button">AGREGAR COMENTARIO</a>
+>>>>>>> 5d716be47a913d3cb4c0cf6520a408e93657bc5f
 					</form>
 
 					<!-- PARA LA SEGUNDA PARTE 
