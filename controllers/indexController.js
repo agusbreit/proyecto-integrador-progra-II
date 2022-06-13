@@ -6,9 +6,17 @@ const op = db.Sequelize.Op;
 
 var indexController = {
    index: function (req, res) {
-      res.render('index', {
-         productos: productos,
-      });
+     productos.findAll({
+        order: [
+           ['createdAt', 'DESC'],
+        ]
+     })
+      .then(function(productos){
+       console.log(productos);
+            return res.render('index', {
+               productos: productos
+            })
+      })
    },
    searchResults: function (req, res) {
       let search = req.query.id
