@@ -225,6 +225,10 @@ font-size: 15px;
   border-bottom: solid 1px var(--gray);
 }
 
+.borrar{
+  color: red;
+}
+
 /*====== Banner ======*/
 .banner {
   background-image: url(/images/img-home-banner.jpg);
@@ -469,6 +473,27 @@ h2.products-title{
   border-radius: 8px;
   border: none;
   margin-bottom: 15px;
+}
+
+.borrar {
+  background-color: #ff5b9a;
+  font-size: 1.6em;
+  color: #ffffff;
+  padding: 15px;
+  border-radius: 8px;
+  border: none;
+  margin-bottom: 15px;
+  margin-left: 40px;
+}
+
+.borrar:hover{
+  background-color: #c42763;
+}
+
+.comentarios{
+  font-family: 'Ubuntu Condensed', sans-serif;
+  font-size: 30px;
+ color: #ff8d23;
 }
 
 .action-button {
