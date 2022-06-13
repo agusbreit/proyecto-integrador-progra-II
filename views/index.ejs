@@ -39,6 +39,7 @@
 						<article class="product-box_data">
 							<h2 class="producto"> <a href="/product/<%= productos[i].nombre %> "><%= productos[i].nombre %> </h2> </a>
 							<p> <%= productos[i].descripcion%> </p>
+							<p> Cantidad de comentarios: <%= productos[i].comentario.length%> </p>
 							<p><a href="/users/profile/<%= productos[i].usuario.id%> "> Subido por: <%= productos[i].usuario.nombreUsuario %> </p> </a>
 
 						</article>

@@ -59,7 +59,10 @@ var productController = {
 
     },
     delete: function(req, res){
-        productos.destroy({
+        let borrar = {
+            deletedAt: CURRENT_TIMESTAMP //NO ANDA
+        }
+        productos.update(borrar, {
             where: {
                 id : req.params.id
             }
