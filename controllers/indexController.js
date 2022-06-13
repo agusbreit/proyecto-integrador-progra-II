@@ -8,7 +8,7 @@ var indexController = {
    index: function (req, res) {
      productos.findAll({
         include: [{
-           association: "usuario"
+           association: 'usuario'
         }],
         order: [ ['createdAt', 'ASC']]
      })
