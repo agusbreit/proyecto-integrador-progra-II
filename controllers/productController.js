@@ -8,11 +8,14 @@ const comentarios = db.Comentario
 
 var productController = {
     index: function (req, res) {
+        let id = req.params.id
+        
+        let producto = {
+        nombre: nombre,
+        comentarios: comentarios,
+        idProduct: req.params.id}
+
         res.render('product', {
-            // usuario: usuario,
-            productos: productos,
-            comentarios: comentarios,
-            idProduct: req.params.id,
         });
     },
     productAdd: function (req, res) {
@@ -37,13 +40,16 @@ var productController = {
         .catch(error => console.log(error))
     },
 
-    // producto: function(req, res){
-    //     let id = req.params.id
-    //     productos.findByPk(id)
-    //     .then (function (elProducto){
-    //         return res.render ('')
-    //     })
-    // }
+    producto: function(req, res){
+        let id = req.params.id
+        productos.findOne({
+            where: [{nombre: id}]
+        }) 
+        .then (function (elProducto){
+            console.log(elProducto);
+            return res.render ('product' , {productos : elProducto})
+        })
+    }
 };
-
+// 
 module.exports = productController;
