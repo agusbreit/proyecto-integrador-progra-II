@@ -34,8 +34,15 @@ var usersController = {
                                         where:[{seguidoId: req.params.id}]
                                     })
                                         .then(function(seguidores){
-                                            console.log(seguidores)
-                                            return res.render('profile', { usuarios : usuarios, productos : productos, seguidores : seguidores });
+                                            comentarios.findAll({
+                                                    include: [{ association: "usuario"}],
+                                                    where: [{usuarioId: req.params.id}]
+                                                })
+                                                .then(function(comentarios){
+                                                    return res.render('profile', { usuarios : usuarios, productos : productos, seguidores : seguidores, comentarios : comentarios });
+                                                })
+                                
+                                            
                                         })
                                    
                                 })

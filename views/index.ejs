@@ -39,9 +39,8 @@
 						<article class="product-box_data">
 							<h2 class="producto"> <a href="/product/<%= productos[i].nombre %> "><%= productos[i].nombre %> </h2> </a>
 							<p> <%= productos[i].descripcion%> </p>
-							<p class="link"> <a href="/users/profile/<%= productos[i].usuario.id %> "> Subido por <%= productos[i].usuario.nombreUsuario %> </p> </a>
-							
-				<!--HAY QUE PONER??			<p>Comentarios: 12</p>  -->
+							<p><a href="/users/profile/<%= productos[i].usuario.id%> "> Subido por: <%= productos[i].usuario.nombreUsuario %> </p> </a>
+
 						</article>
 					
 				</section>
