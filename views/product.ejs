@@ -25,13 +25,13 @@
 					<p class="product-detail-description">
 						<%= productos.descripcion %>
 					</p>
-					<a href="/users/profile/<%= productos.usuario.id %> ">Subido por <%= productos.usuario.nombreUsuario %></a>
+					<h1 class="nombre"><a href="/users/profile/<%= productos.usuario.id %> ">Subido por <%= productos.usuario.nombreUsuario %> </h1> </a>
 					<p> </p>
 				</article>
-		<!-- if (userId = cookieId) {
+	     	<!-- if (userId = cookieId) {
 			
-		} 
-		-->
+	     	} 
+	        	-->
 		<button class="buy-now-button" type="submit"> Borrar </button> 
 				<div class="col-12 col-lg-4">
 
@@ -50,7 +50,7 @@
 					</section> --> 
 
 					<form class="form" action="" method="get">
-						<input class="form-input" type="text" value="" placeholder="Agregar comentario">
+						<input class="form-input1" type="text" value="" placeholder="Agregar comentario">
 						<a href="/users/register" type="submit" class="buy-now-button">AGREGAR COMENTARIO</a>
 					</form>
 
