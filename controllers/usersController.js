@@ -231,6 +231,7 @@ var usersController = {
                             req.session.user = user.dataValues;  //guardo al usuario que consegui con user, en el session
                                 //Si el usuario tildó recordarme creo la cookie
                                 //si el usuario tildo recordarme, creo la cookie. traigo con req.body el checkbox para hacer el if
+                                // return res.send(req.body)
                                 if (req.body.recordarme) {
                                     res.cookie('userId', user.dataValues.id, {
                                         maxAge: 1000 * 60 * 100

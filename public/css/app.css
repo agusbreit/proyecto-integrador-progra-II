@@ -139,6 +139,29 @@ hr {
 }
 
 
+.nombre{
+  margin-left: 50px;
+  font-size: 20px;
+}
+ .nombre:hover{
+   color: orange;
+   font-weight: bold;
+ }
+
+
+ .producto:hover{
+   color: orange
+ }
+
+ .link:hover{
+   color: #ff5b9a;
+ }
+
+ .recordar{
+   font-size: 18px;
+ }
+
+
 /*====== Main Navbar ======*/
 .btn-toggle-navbar {
   background-color: var(--dark-blue);
