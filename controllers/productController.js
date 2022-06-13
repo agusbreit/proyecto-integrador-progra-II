@@ -43,6 +43,7 @@ var productController = {
     producto: function(req, res){
         let id = req.params.id
         productos.findOne({
+            include: [{ association: "usuario"}],
             where: [{nombre: id}]
         }) 
         .then (function (elProducto){

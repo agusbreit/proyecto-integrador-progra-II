@@ -25,10 +25,12 @@
 					<p class="product-detail-description">
 						<%= productos.descripcion %>
 					</p>
+					<a href="/users/profile/<%= productos.usuario.id %> ">Subido por <%= productos.usuario.nombreUsuario %></a>
+					<p> </p>
 				</article>
 		<!-- if (userId = cookieId) {
 			
-		}  
+		} 
 		-->
 		<button class="buy-now-button" type="submit"> Borrar </button> 
 				<div class="col-12 col-lg-4">
