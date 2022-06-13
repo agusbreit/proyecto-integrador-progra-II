@@ -55,23 +55,21 @@ var usersController = {
             let errores = {}
             if (user) {
             console.log(user)
-               // errores.message = "Ya lo seguis"  //le agrego la posicion message al obj literal errores
-               // res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
-               // return res.render('profile');
+            return res.redirect(`/users/profile/${req.params.id}`)
            } else {
             seguidores.create({
                    seguidorId: req.session.user.id,
                    seguidoId: req.params.id
                 })
                 .then( function(respuesta){
-                return res.redirect('/')
+                return res.redirect(`/users/profile/${req.params.id}`)
                  })
              .catch (error => console.log(error))  
         }
         })
         .catch (error => console.log(error))  
 
-               //   
+            
            
   
 },
