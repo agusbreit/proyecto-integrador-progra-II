@@ -11,7 +11,7 @@ var indexController = {
       });
    },
    searchResults: function (req, res) {
-      let search = req.query.id
+      let search = req.query
       console.log(search);
       productos.findAll({
          where: [{
@@ -24,7 +24,7 @@ var indexController = {
             }
          }]
       }).then(function (unosProductos) {
-         if (unosProductos.length > 0) {
+         if (unosProductos != "") {
             console.log(unosProductos);
             return res.render('search-results', {
                productos: unosProductos
