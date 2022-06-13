@@ -52,7 +52,6 @@ var usersController = {
         where: [{ seguidorId: req.session.user.id, seguidoId: req.params.id }]
         })
         .then(function(user){
-            let errores = {}
             if (user) {
             console.log(user)
             return res.redirect(`/users/profile/${req.params.id}`)

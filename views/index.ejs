@@ -27,11 +27,6 @@
 		<div class="row">
 			<div class="col-12">
 				<h2 class="products-title">Novedades</h2>
-				<% if(locals.user){ %> 
-					<p>Hola <%= user.email %> </p>  
-				<% } else { %> 
-					<p>No estas logueado</p>
-				<% } %> 
 			</div>
 			<!-- Show the "ultimos" products -->
 
@@ -64,7 +59,7 @@
 						<section class="product-box">
 							<a href="/product/<%= productos[i].nombre %>">
 								<figure class="product-box_image">
-									<img src=<%= productos[i].image %> alt="producto">
+									<img src'../productos[i].image %> alt="producto">
 								</figure>
 								<article class="product-box_data">
 									<h2> <%= productos[i].nombre %> </h2>
