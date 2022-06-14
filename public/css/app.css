@@ -475,6 +475,10 @@ h2.products-title{
   margin-bottom: 15px;
 }
 
+.buy-now-button:hover {
+  background-color:#d1a222;;
+}
+
 .borrar {
   background-color: #ff5b9a;
   font-size: 1.6em;
