@@ -38,17 +38,6 @@
 
 
 				</article>
-	     	<!-- if (userId = cookieId) {
-			
-		} 
-		-->
-		<% if (locals.user) { %> 
-		<% if (locals.user.id == productos.usuario.id) { %> 
-		<form action="/product/delete/<%= productos.id %> " method="post">
-		<button class="btn mt-3 ml-4" type="submit"> Borrar </button>
-		</form> 
-		<% } %>
-		<% } %> 
 
 		<section class="comments">
 			<h2 class="comentarios"> COMENTARIOS </h2>
