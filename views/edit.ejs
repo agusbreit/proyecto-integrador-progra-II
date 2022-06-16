@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%-include('./partials/head.ejs', {titulo:'Editar perfil - The Fantasy'})%>
+
+<body>
+	<!-- Header -->
+	<% if (locals.user) { %> 
+		<%- include('partials/headerLogueado') %>
+	<% } else { %>
+		<%- include('partials/header') %>
+	<% } %>  
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title">Editar mi perfil</h2>
+			</div>
+			<div class="col-11">
+			<% if (locals.errores) {%> 
+				<%= errores.message  %>  <!-- agregarle una clase para css -->
+			<% } %> 
+			</div>
+			</div>
+			<!-- Show the "ultimos" products -->
+			<section class="form-register">
+				<form action="/product/edited/<%= productos.id %> " method="post" name="form-register" enctype="multipart/form-data">
+					<input class="form-input1" type="text" name="nombre" value="<%= productos.nombre %> ">
+					<input class="form-input1" type="text" name="descripcion" value="<%= productos.descripcion %> ">
+					<input class="form-input1" type="file" name="imagen" value="<%= productos.imagen %>"
+						value="Ingrese Imagen">
+					<button type="submit" class="btn mt-3 ml-4">POSTEAR PRODUCTO</button>
+				</form>
+			</section>
+			<!-- footer -->
+			<%-include('./partials/footer.ejs')%>
+			<!-- /footer -->
+</body>
+
+</html>

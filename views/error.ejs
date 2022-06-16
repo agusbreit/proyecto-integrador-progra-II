@@ -1,3 +1,24 @@
-<h1><%= message %></h1>
-<h2><%= //error.status %></h2>
-<pre><%= //error.stack %></pre>
+<!DOCTYPE html>
+<html lang="es">
+<!-- Include Head -->
+<%-include('./partials/head.ejs', {titulo:'Resultado de busqueda - The Fantasy'})%>
+
+<body>
+	<!-- Header -->
+	<%-include('./partials/header.ejs')%>
+	<!-- /Header -->
+
+	<!-- Novedades -->
+	<div class="container products-wrapper">
+		<div class="row">
+			<div class="col-12">
+				<h2 class="products-title"><%= message %></h2>
+			</div>
+			<!-- Show search products -->
+			<!-- footer -->
+			<%-include('./partials/footer.ejs')%>
+			<!-- /footer -->
+
+</body>
+
+</html>

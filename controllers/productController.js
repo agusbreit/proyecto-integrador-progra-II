@@ -68,15 +68,67 @@ var productController = {
         })
     },
     comentario: function (req, res) {
-        let comentario = {
-            comentario: req.body.comentario,
-            usuarioId: req.session.user.id,
-            productoId: req.params.id
-        }
-        comentarios.create(comentario)
+        if(req.session.user == undefined){
+            return res.redirect('/users/login')
+        } else { 
+            let comentario = {
+                comentario: req.body.comentario,
+                usuarioId: req.session.user.id,
+                productoId: req.params.id
+            }
+            comentarios.create(comentario)
+            .then (function(respuesta){
+                return res.redirect ("/")
+            })
+        };
+    },
+    edit: function(req, res){
+        if(req.session.user == undefined){
+            return res.redirect('/')
+        } else { 
+            productos.findOne({
+                where: [{id: req.params.id}]
+            })
+            .then (function(elProducto){
+                return res.render('edit' , {productos: elProducto});
+            })
+            
+        };
+    },
+
+    // edit: function(req, res) {
+    //     const id = req.params.id;
+    //     if(req.session.user){
+    //         productos.findByPk(id)
+    //             .then(productos=>{
+    //                 if(req.session.user.usuarioId == productos.usuarioId){
+    //                     return res.render("edit", {productos: productos}); 
+    //                 }else{
+    //                     return res.redirect("/")
+    //                 }
+    //             })
+    //             .catch(error => {
+    //                 console.log(error)
+    //             })
+    //     }else{
+    //         return res.redirect("/users/login")
+    //     }
+    // },
+
+    edited: function(req, res){
+         let product = {
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                //imagen: req.file.filename,
+                usuarioId: req.session.user.id
+            }
+        productos.update(product, {
+            where: [{id: req.params.id}]
+        })
         .then (function(respuesta){
             return res.redirect ('/')
         })
+        .catch(error => console.log(error))
     }
     
 

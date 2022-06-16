@@ -43,8 +43,8 @@ var indexController = {
                productos: unosProductos
             })
          } else {
-            let message = "no lo pudimos encontrar"
-            res.render("error", {
+            let message = "No encontramos lo que esta buscando"
+            res.render ("error", {
                message: message
             })
          }

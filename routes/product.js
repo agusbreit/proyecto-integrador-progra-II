@@ -27,6 +27,10 @@ router.post("/delete/:id?" ,productController.delete)
 
 router.post("/comentario/:id?" , productController.comentario)
 
+router.get("/edit/:id" , productController.edit)
+
+router.post("/edited/:id", upload.single('imagen'), productController.edited)
+
 
 // router.post('/:id?', productController.delete);
 
