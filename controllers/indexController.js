@@ -44,21 +44,12 @@ var indexController = {
             return res.render('search-results', {
                productos: unosProductos
             })
-<<<<<<< HEAD
-         } else {
-            let message = "No encontramos lo que esta buscando"
-            res.render ("error", {
-               message: message
-            })
-         }
-=======
          //} else {
             //let message = "no lo pudimos encontrar"
           //  res.render('search-results')//, {
              //  message: message
            // })
        // }
->>>>>>> db57ad84159990bf43893eb3f3718cbffe4f6cf2
       })
    },
 };

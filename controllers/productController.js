@@ -2,6 +2,7 @@ const db = require('../database/models')
 const productos = db.Producto
 const usuarios = db.Usuario
 const comentarios = db.Comentario
+const bcrypt = require('bcryptjs');
 //var usuario = require('../db/usuario');
 //var productos = require('../db/productos');
 //var comentarios = require('../db/comentarios');
@@ -118,6 +119,7 @@ var productController = {
     // },
 
     edited: function(req, res){
+    
          let product = {
                 nombre: req.body.nombre,
                 descripcion: req.body.descripcion,
@@ -136,11 +138,8 @@ var productController = {
            
         })
         .catch(error => console.log(error))
-    }
+    },
     
 
 }
-
-    
-// 
 module.exports = productController;
