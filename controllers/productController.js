@@ -56,6 +56,8 @@ var productController = {
             return res.render ('product' , {productos : elProducto, comentarios : comentarios})
         })
         })
+        .catch(error => console.log(error))
+        .catch(error => console.log(error))
 
     },
     delete: function(req, res){
@@ -75,7 +77,12 @@ var productController = {
         }
         comentarios.create(comentario)
         .then (function(respuesta){
-            return res.redirect ('/')
+            productos.findByPk(req.params.id)
+            .then(function(producto){
+                return res.redirect (`/product/${producto.nombre}`)
+            })
+            .catch(error => console.log(error))
+           
         })
     }
     
