@@ -48,7 +48,11 @@
 						<li>Producto: No publicó productos aún</li>
 						<% } %> 
 						<li>Seguidores: <%= seguidores.length %> </li>
-						<li>300 comentarios</li>  <!-- CAMBIAR -->
+						<% if (comentarios.length > 0) {%> 
+						<li>  Comentarios: <%= comentarios.length %> </li>  
+						<% } else { %> 
+							<li> Comentarios: No comentó productos aún</li>
+						<% } %> 
 					</ul>
 				</div>
 			</div>

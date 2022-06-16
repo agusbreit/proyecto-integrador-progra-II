@@ -48,22 +48,24 @@ var productController = {
         }) 
         .then (function (elProducto){
         comentarios.findAll({
-            include: [{ association: "usuario"}, { association: "producto"}]
+            include: [{ association: "usuario"}, { association: "producto"}],
+            where: [{productoId: elProducto.id}]
         })
         .then(function(comentarios){
-            console.log(elProducto);
+            console.log(comentarios)
             return res.render ('product' , {productos : elProducto, comentarios : comentarios})
         })
         })
+        .catch(error => console.log(error))
+        .catch(error => console.log(error))
 
     },
     delete: function(req, res){
-        productos.destroy({
-            where: {
-                id : req.params.id
-            }
+        productos.destroy({ where: [{
+            id : req.params.id }]
         })
         .then (function(borrar){
+            console.log(borrar)
             return res.redirect ('/')
         })
     },
@@ -126,7 +128,12 @@ var productController = {
             where: [{id: req.params.id}]
         })
         .then (function(respuesta){
-            return res.redirect ('/')
+            productos.findByPk(req.params.id)
+            .then(function(producto){
+                return res.redirect (`/product/${producto.nombre}`)
+            })
+            .catch(error => console.log(error))
+           
         })
         .catch(error => console.log(error))
     }
