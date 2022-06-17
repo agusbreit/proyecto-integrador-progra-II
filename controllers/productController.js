@@ -62,8 +62,8 @@ var productController = {
 
     },
     delete: function(req, res){
-        productos.destroy({ where: [{
-            id : req.params.id }]
+        productos.destroy({ 
+            where: {id : req.params.id }
         })
         .then (function(borrar){
             console.log(borrar)
