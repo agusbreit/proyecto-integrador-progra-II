@@ -50,6 +50,7 @@ var indexController = {
             ]
          }
       }).then(function (unosProductos) {
+<<<<<<< HEAD
             console.log(unosProductos);
             if (unosProductos != "") {
                console.log(unosProductos);
@@ -64,5 +65,22 @@ var indexController = {
       }
    }
 
+=======
+        // console.log(unosProductos);
+        // if (unosProductos != "") {
+          //  console.log(unosProductos);
+            return res.render('search-results', {
+               productos: unosProductos
+            })
+         //} else {
+            //let message = "no lo pudimos encontrar"
+          //  res.render('search-results')//, {
+             //  message: message
+           // })
+       // }
+      })
+   },
+};
+>>>>>>> 1d1efd695066ec84fae9ebbc8eb79cd104252e39
 
 module.exports = indexController;

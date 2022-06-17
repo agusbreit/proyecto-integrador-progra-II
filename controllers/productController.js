@@ -2,6 +2,7 @@ const db = require('../database/models')
 const productos = db.Producto
 const usuarios = db.Usuario
 const comentarios = db.Comentario
+const bcrypt = require('bcryptjs');
 //var usuario = require('../db/usuario');
 //var productos = require('../db/productos');
 //var comentarios = require('../db/comentarios');
@@ -75,6 +76,7 @@ var productController = {
             .catch(error => console.log(error))
 
     },
+<<<<<<< HEAD
     delete: function (req, res) {
         productos.destroy({
                 where: [{
@@ -85,6 +87,16 @@ var productController = {
                 console.log(borrar)
                 return res.redirect('/')
             })
+=======
+    delete: function(req, res){
+        productos.destroy({ 
+            where: {id : req.params.id }
+        })
+        .then (function(borrar){
+            console.log(borrar)
+            return res.redirect ('/')
+        })
+>>>>>>> 1d1efd695066ec84fae9ebbc8eb79cd104252e39
     },
     comentario: function (req, res) {
         if (req.session.user == undefined) {
@@ -138,6 +150,7 @@ var productController = {
     //     }
     // },
 
+<<<<<<< HEAD
     edited: function (req, res) {
         let product = {
             nombre: req.body.nombre,
@@ -145,6 +158,16 @@ var productController = {
             //imagen: req.file.filename,
             usuarioId: req.session.user.id
         }
+=======
+    edited: function(req, res){
+    
+         let product = {
+                nombre: req.body.nombre,
+                descripcion: req.body.descripcion,
+                //imagen: req.file.filename,
+                usuarioId: req.session.user.id
+            }
+>>>>>>> 1d1efd695066ec84fae9ebbc8eb79cd104252e39
         productos.update(product, {
                 where: [{
                     id: req.params.id
@@ -159,6 +182,7 @@ var productController = {
 
             })
             .catch(error => console.log(error))
+<<<<<<< HEAD
     }
 
 
@@ -166,4 +190,13 @@ var productController = {
 
 
 // 
+=======
+           
+        })
+        .catch(error => console.log(error))
+    },
+    
+
+}
+>>>>>>> 1d1efd695066ec84fae9ebbc8eb79cd104252e39
 module.exports = productController;
