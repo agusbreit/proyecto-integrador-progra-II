@@ -41,10 +41,9 @@ var usersController = {
                                                 .then(function(comentarios){
                                                     return res.render('profile', { usuarios : usuarios, productos : productos, seguidores : seguidores, comentarios : comentarios });
                                                 })
-                                
-                                            
+                                                .catch(error => console.log(error))
                                         })
-                                   
+                                        .catch(error => console.log(error))
                                 })
                                 .catch(error => console.log(error))
                         })
@@ -130,7 +129,7 @@ var usersController = {
                             where: [{id: req.body.id}]
                         })
                             .then( function(user){
-
+                            
                             return res.redirect('/')
                             
                         })

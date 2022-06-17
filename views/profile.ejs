@@ -23,7 +23,7 @@
 				<div class="d-flex align-items-center ">
 					<h1 class="main-title"><%=usuarios.dataValues.nombreUsuario%></h1>
 					<% if (locals.user) {%>
-					 <% if(locals.user.nombreUsuario == usuarios.dataValues.nombreUsuario){ %> 
+					 <% if(locals.user.id == usuarios.dataValues.id){ %> 
 						<a href="/users/profile-edit"> Editar perfil <i class="fas fa-cog"></i></a>
 						<% } else { %> 
 							<a href="/users/profile"></a>

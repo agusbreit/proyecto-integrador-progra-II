@@ -56,19 +56,37 @@ var productController = {
             console.log(comentarios)
             return res.render ('product' , {productos : elProducto, comentarios : comentarios})
         })
-        })
         .catch(error => console.log(error))
+        })
         .catch(error => console.log(error))
 
     },
     delete: function(req, res){
-        productos.destroy({ 
-            where: {id : req.params.id }
+       if (req.session.user == undefined) {
+        return res.redirect('/')
+     } else {
+        productos.findByPk(req.params.id)
+        .then(function(producto){
+            if(producto.usuarioId == req.session.user.id){
+                productos.destroy({ 
+                    where: {id : req.params.id }
+                })
+                .then (function(borrar){
+                    comentarios.destroy({
+                        where: {productoId : req.params.id}
+                    })
+                    .then(function(borrado){
+                        return res.redirect ('/')
+                    })
+                    .catch(error => console.log(error))
+                })
+                .catch(error => console.log(error))
+            } else {
+                return res.redirect('/')
+            }
         })
-        .then (function(borrar){
-            console.log(borrar)
-            return res.redirect ('/')
-        })
+       }
+    
     },
     comentario: function (req, res) {
         if(req.session.user == undefined){
@@ -81,22 +99,36 @@ var productController = {
             }
             comentarios.create(comentario)
             .then (function(respuesta){
-                return res.redirect ("/")
+                productos.findByPk(req.params.id)
+                .then (function(producto){
+                    return res.redirect (`/product/${producto.nombre}`)
+                })
+                .catch(error => console.log(error))
             })
+            .catch(error => console.log(error))
         };
     },
     edit: function(req, res){
-        if(req.session.user == undefined){
+        if (req.session.user == undefined) {
             return res.redirect('/')
-        } else { 
-            productos.findOne({
-                where: [{id: req.params.id}]
+        } else {
+            productos.findByPk(req.params.id)
+            .then(function(producto){
+                if(producto.usuarioId == req.session.user.id){
+                    productos.findOne({
+                        where: [{id: req.params.id}]
+                    })
+                    .then (function(elProducto){
+                        return res.render('edit' , {productos: elProducto});
+                    })
+                    .catch(error => console.log(error))
+                } else {
+                    return res.redirect('/')
+                }
             })
-            .then (function(elProducto){
-                return res.render('edit' , {productos: elProducto});
-            })
-            
-        };
+            .catch(error => console.log(error))
+        }
+       
     },
 
     // edit: function(req, res) {
@@ -123,7 +155,7 @@ var productController = {
          let product = {
                 nombre: req.body.nombre,
                 descripcion: req.body.descripcion,
-                //imagen: req.file.filename,
+                imagen: req.file.filename,
                 usuarioId: req.session.user.id
             }
         productos.update(product, {
