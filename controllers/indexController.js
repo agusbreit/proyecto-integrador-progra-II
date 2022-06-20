@@ -5,7 +5,6 @@ const db = require('../database/models')
 const productos = db.Producto
 const usuarios = db.Usuario
 const op = db.Sequelize.Op;
-//var productos = require('../db/productos');
 
 var indexController = {
    index: function (req, res) {
@@ -20,7 +19,6 @@ var indexController = {
             ]
          })
          .then(function (productos) {
-            console.log(productos);
             return res.render('index', {
                productos: productos,
             })
@@ -29,7 +27,6 @@ var indexController = {
    },
    searchResults: function (req, res) {
       let search = req.query.search
-      console.log(search);
       productos.findAll({
          include: [{
             association: 'usuario'
@@ -50,18 +47,9 @@ var indexController = {
             ]
          }
       }).then(function (unosProductos) {
-        // console.log(unosProductos);
-        // if (unosProductos != "") {
-          //  console.log(unosProductos);
             return res.render('search-results', {
                productos: unosProductos
             })
-         //} else {
-            //let message = "no lo pudimos encontrar"
-          //  res.render('search-results')//, {
-             //  message: message
-           // })
-       // }
       })
    },
 };

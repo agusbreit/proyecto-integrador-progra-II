@@ -3,9 +3,6 @@ const productos = db.Producto
 const usuarios = db.Usuario
 const comentarios = db.Comentario
 const bcrypt = require('bcryptjs');
-//var usuario = require('../db/usuario');
-//var productos = require('../db/productos');
-//var comentarios = require('../db/comentarios');
 
 var productController = {
     index: function (req, res) {
@@ -32,7 +29,6 @@ var productController = {
             imagen: req.file.filename,
             usuarioId: req.session.user.id
         }
-
         productos.create(product)
             .then(function (respuesta) {
                 return res.redirect('/')
@@ -64,16 +60,14 @@ var productController = {
                     
                     })
                     .then(function (comentarios) {
-                        console.log(comentarios)
                         return res.render('product', {
                             productos: elProducto,
                             comentarios: comentarios
                         })
                     })
+                    .catch(error => console.log(error))
             })
             .catch(error => console.log(error))
-            .catch(error => console.log(error))
-
     },
     delete: function(req, res){
        if (req.session.user == undefined) {
@@ -159,26 +153,6 @@ var productController = {
 
         };
     },
-
-    // edit: function(req, res) {
-    //     const id = req.params.id;
-    //     if(req.session.user){
-    //         productos.findByPk(id)
-    //             .then(productos=>{
-    //                 if(req.session.user.usuarioId == productos.usuarioId){
-    //                     return res.render("edit", {productos: productos}); 
-    //                 }else{
-    //                     return res.redirect("/")
-    //                 }
-    //             })
-    //             .catch(error => {
-    //                 console.log(error)
-    //             })
-    //     }else{
-    //         return res.redirect("/users/login")
-    //     }
-    // },
-
     edited: function(req, res){
     
          let product = {
@@ -198,12 +172,9 @@ var productController = {
                         return res.redirect(`/product/${producto.nombre}`)
                     })
                     .catch(error => console.log(error))
-
             })
             .catch(error => console.log(error))
-           
     },
     
-
 }
 module.exports = productController;

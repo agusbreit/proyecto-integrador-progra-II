@@ -65,7 +65,6 @@ var usersController = {
     },
     seguir: function (req, res) {
         seguidores.findOne({
-                //     include:[{association: 'seguidor'}, {association: 'seguido'}],
                 where: [{
                     seguidorId: req.session.user.id,
                     seguidoId: req.params.id
@@ -73,7 +72,6 @@ var usersController = {
             })
             .then(function (user) {
                 if (user) {
-                    console.log(user)
                     return res.redirect(`/users/profile/${req.params.id}`)
                 } else {
                     seguidores.create({
@@ -240,12 +238,10 @@ var usersController = {
     },
     signIn: function (req, res) {
         let errores = {}
-
         //Del usuario conseguido chequear que la contraseña del formulario coincida con la guardad el base.
         //USamos compareSync 
         //Si las contraseñas coinciden avisemos con mensaje que todo está ok. Cuando sepamos loguear redireccionamos a la home con el proceso de login completo.
         //Controlar que el usario no esté logueado
-
         usuarios.findOne({
                 where: [{
                     email: req.body.email
@@ -290,7 +286,6 @@ var usersController = {
             res.clearCookie('userId')
         }
         return res.redirect('/');
-
     }
 
 
