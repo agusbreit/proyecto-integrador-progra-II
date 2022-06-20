@@ -16,7 +16,6 @@ var productController = {
             comentarios: comentarios,
             idProduct: req.params.id
         }
-
         res.render('product', {});
     },
     productAdd: function (req, res) {

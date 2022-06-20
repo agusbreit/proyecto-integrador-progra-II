@@ -29,7 +29,7 @@
 				<form action="/product/edited/<%= productos.id %> " method="post" name="form-register" enctype="multipart/form-data">
 					<input class="form-input1" type="text" name="nombre" value="<%= productos.nombre %> ">
 					<input class="form-input1" type="text" name="descripcion" value="<%= productos.descripcion %> ">
-					<input class="form-input1" type="file" name="imagen" value=""
+					<input class="form-input1" type="file" name="imagen" value="<%= productos.imagen %>"
 						value="Ingrese Imagen">
 					<button type="submit" class="btn mt-3 ml-4">POSTEAR PRODUCTO</button>
 				</form>

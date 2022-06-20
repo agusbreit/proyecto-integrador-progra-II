@@ -266,13 +266,13 @@ var usersController = {
                         }
                         return res.redirect('/');
                     } else {
-                        errores.message = "contraseña incorrecta" //le agrego la posicion message al obj literal errores
+                        errores.message = "Contraseña incorrecta" //le agrego la posicion message al obj literal errores
                         res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
                         return res.render('login');
                     }
 
                 } else {
-                    errores.message = "ese mail no existe" //le agrego la posicion message al obj literal errores
+                    errores.message = "Ese mail no existe" //le agrego la posicion message al obj literal errores
                     res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
                     return res.render('login');
                 }

@@ -17,7 +17,6 @@
 		<div class="row">
 			<div class="img-container offset-3 col-2">
 				<img src="/images/fotosPerfil/<%=usuarios.dataValues.imagen%>" alt="foto de perfil" class="foto-perfil"> 
-		<!-- NO ANDA LA FOTO -->
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
@@ -42,7 +41,7 @@
 						<% if(productos.length > 0){ %> 
 							<li>Productos: <%= productos.length %> </li>
 						<% for ( let i=0 ; i < productos.length; i++) { %>
-						<li><a href="/product/<%=productos[i].dataValues.nombre%>"><%=productos[i].dataValues.nombre%></a></li> <!-- NO ANDA LA ASOCIACION -->
+						<li><a href="/product/<%=productos[i].dataValues.nombre%>"><%=productos[i].dataValues.nombre%></a></li>
 						<% } %> 
 						<% } else { %> 
 						<li>Producto: No publicó productos aún</li>

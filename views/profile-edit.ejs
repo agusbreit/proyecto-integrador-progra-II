@@ -27,14 +27,14 @@
 			<!-- Show the "ultimos" products -->
 			<section class="form-register">
 				<form action="/users/edit" method="post" name="form-register" enctype="multipart/form-data">
-				<input class="form-input" type="email" name="email" id="nombres" value="<%= locals.user.email %>" >
-				<input class="form-input" type="text" name="nombreUsuario" id="nombres" placeholder="Ingrese su nuevo usuario">
+				<input class="form-input" type="email" name="email" id="nombres" value="<%= user.email %>" >
+				<input class="form-input" type="text" name="nombreUsuario" id="nombres" value="<%= user.nombreUsuario %>">
 				<input class="form-input" type="password" name="contrasenaAnterior" id="nombres" placeholder="Ingrese su contraseña anterior">
 				<input class="form-input" type="password" name="contrasena" id="nombres" placeholder="Ingrese su nueva contraseña ">
 				<input class="form-input" type="date" name="nacimiento" id="nombres" placeholder="Ingrese su fecha de nacimiento">
-				<input class="form-input" type="number" name="documento" id="nombres" placeholder="Ingrese su documento">
-				<input class="form-input" type="file" name="imagen" id="nombres" placeholder="Foto de perfil">
-				<input class="form-input" type="hidden" name="id" id="nombres" value ="<%= locals.user.id %>">
+				<input class="form-input" type="number" name="documento" id="nombres" value="<%= user.documento %>">
+				<input class="form-input" type="file" name="imagen" id="nombres" value="<%= user.imagen %>">
+				<input class="form-input" type="hidden" name="id" id="nombres" value ="<%= user.id %>">
 				<p>Estoy de acuerdo con <a href="/users/register"> Terminos y condiciones</a></p>
 				<button type="submit">Editar informacion</button>
 				</form>
