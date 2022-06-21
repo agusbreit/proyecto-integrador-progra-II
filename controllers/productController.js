@@ -136,23 +136,23 @@ var productController = {
             .catch(error => console.log(error))
         }
     },
-    edit: function (req, res) {
-        if (req.session.user == undefined) {
-            return res.redirect('/')
-        } else {
-            productos.findOne({
-                    where: [{
-                        id: req.params.id
-                    }]
-                })
-                .then(function (elProducto) {
-                    return res.render('edit', {
-                        productos: elProducto
-                    });
-                })
+   // edit: function (req, res) {
+      //  if (req.session.user == undefined) {
+       //     return res.redirect('/')
+      //  } else {
+         //   productos.findOne({
+       //             where: [{
+        //                id: req.params.id
+        //            }]
+       //         })
+       //         .then(function (elProducto) {
+       //             return res.render('edit', {
+       //                 productos: elProducto
+      //              });
+      //          })
 
-        };
-    },
+     //   };
+   // },
     edited: function(req, res){
     
          let product = {
