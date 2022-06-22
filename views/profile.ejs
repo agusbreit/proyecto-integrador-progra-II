@@ -16,18 +16,18 @@
 	<section class="info-usuario container products-wrapper">
 		<div class="row">
 			<div class="img-container offset-3 col-2">
-				<img src="/images/fotosPerfil/<%=usuarios.dataValues.imagen%>" alt="foto de perfil" class="foto-perfil"> 
+				<img src="/images/fotosPerfil/<%=usuarios.imagen%>" alt="foto de perfil" class="foto-perfil"> 
 			</div>
 			<div class="data-container col-6">
 				<div class="d-flex align-items-center ">
-					<h1 class="main-title"><%=usuarios.dataValues.nombreUsuario%></h1>
+					<h1 class="main-title"><%=usuarios.nombreUsuario%></h1>
 					<% if (locals.user) {%>
-					 <% if(locals.user.id == usuarios.dataValues.id){ %> 
+					 <% if(locals.user.id == usuarios.id){ %> 
 						<a href="/users/profile-edit"> Editar perfil <i class="fas fa-cog"></i></a>
 						<% } else { %> 
 							<a href="/users/profile"></a>
-							<form  action="/users/seguir/<%= usuarios.dataValues.id %> " method="post">
-							<button class="btn mt-3 ml-4" type="submit" name="seguir">Seguir</button>
+							<form  action="/users/seguir/<%= usuarios.id %> " method="post">
+							<button class="btn mt-3 ml-4" type="submit" name="seguir">Seguir / dejar de seguir</button>
 						<% }  %>
 					<% } else { %> 
 						<a href="/users/profile"></a>
@@ -37,11 +37,11 @@
 				</div>
 				<div>
 					<ul class="">
-						<h4><%=usuarios.dataValues.email%></h4>
+						<h4><%=usuarios.email%></h4>
 						<% if(productos.length > 0){ %> 
 							<li>Productos: <%= productos.length %> </li>
 						<% for ( let i=0 ; i < productos.length; i++) { %>
-						<li><a href="/product/<%=productos[i].dataValues.nombre%>"><%=productos[i].dataValues.nombre%></a></li>
+						<li><a href="/product/<%=productos[i].nombre%>"><%=productos[i].nombre%></a></li>
 						<% } %> 
 						<% } else { %> 
 						<li>Producto: No publicó productos aún</li>

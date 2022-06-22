@@ -18,21 +18,13 @@ var usersController = {
         }
     },
     profile: function (req, res) {
-        // if(req.session.user == undefined){
-        //    return res.redirect('/')
-        // } else {
-
         productos.findAll({
                 where: [{
                     usuarioId: req.params.id
                 }],
             })
             .then(function (productos) {
-                usuarios.findOne({
-                        where: [{
-                            id: req.params.id
-                        }],
-                    })
+                usuarios.findByPk(req.params.id)
                     .then(function (usuarios) {
                         seguidores.findAll({
                                 where: [{
@@ -56,8 +48,9 @@ var usersController = {
                                             comentarios: comentarios
                                         });
                                     })
+                                    .catch(error => console.log(error))
                             })
-
+                            .catch(error => console.log(error))
                     })
                     .catch(error => console.log(error))
             })
@@ -72,7 +65,13 @@ var usersController = {
             })
             .then(function (user) {
                 if (user) {
-                    return res.redirect(`/users/profile/${req.params.id}`)
+                    seguidores.destroy({
+                        where: { seguidorId: req.session.user.id, seguidoId: req.params.id}
+                    })
+                    .then(function (answer) {
+                        return res.redirect(`/users/profile/${req.params.id}`)
+                    })
+                    .catch(error => console.log(error))
                 } else {
                     seguidores.create({
                             seguidorId: req.session.user.id,
@@ -84,7 +83,7 @@ var usersController = {
                         .catch(error => console.log(error))
                 }
             })
-            .catch(error => console.log(error))
+          .catch(error => console.log(error))
 
     },
     profileEdit: function (req, res) {
