@@ -6,7 +6,7 @@
 
 <body>
 	<!-- Header -->
-	<% if (locals.user) { %> 
+	<% if (user) { %> 
 		<%- include('partials/headerLogueado') %>
 	<% } else { %>
 		<%- include('partials/header') %>
@@ -19,17 +19,17 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<div class="col-11">
-					<% if (locals.errores) {%> 
+					<% if (errores) {%> 
 						<%= errores.message  %>  
 					<% } %> 
 			</div>
 			</div>
 			<section class="form-register">
 				<form action="/users/login" method="POST">
-					<input class="form-input" type="text" id="nombres" name="email" placeholder="Email">
-					<input class="form-input" type="password" id="nombres" name="contrasena" placeholder="Contraseña">
+					<input class="form-input" type="text"  name="email" placeholder="Email">
+					<input class="form-input" type="password"  name="contrasena" placeholder="Contraseña">
 	                <div>
-						<input class="checkbox" type="checkbox" id="check-recordarme" name="recordarme" /> 
+						<input class="checkbox" type="checkbox"  name="recordarme" /> 
 						<label class="recordar" for="check-recordarme"> Recordarme </label>
 					</div> 
 					
