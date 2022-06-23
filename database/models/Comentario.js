@@ -1,6 +1,6 @@
 module.exports = function (sequelize, dataTypes){
 
-    //Definir un alias. El alias me permite identificar al modelo cuando lo usamos en el controlador.
+    //Definir un alias
     let alias = 'Comentario';
 
     //Columnas y sus características
@@ -40,7 +40,7 @@ module.exports = function (sequelize, dataTypes){
     //Configuraciones adicionales
     let config = {
         tableName: 'comentarios', //Nombre de la tabla en la base de datos.
-        timestamps: true, //Si la tabla no tiene los campos createdAt y updatedAt
+        timestamps: true, 
     }
 
     const Comentario = sequelize.define(alias, cols, config);

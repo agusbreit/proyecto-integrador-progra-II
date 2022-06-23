@@ -4,10 +4,6 @@ const usuarios = db.Usuario
 const comentarios = db.Comentario
 const seguidores = db.Seguidor
 const bcrypt = require('bcryptjs');
-//const { where } = require('sequelize/types');
-
-//var usuario = require('../db/usuario');
-//var productos = require('../db/productos');
 
 var usersController = {
     register: function (req, res) {
@@ -33,9 +29,6 @@ var usersController = {
                             })
                             .then(function (seguidores) {
                                 comentarios.findAll({
-                                        include: [{
-                                            association: "usuario"
-                                        }],
                                         where: [{
                                             usuarioId: req.params.id
                                         }]
@@ -97,27 +90,26 @@ var usersController = {
         //detectar errores de los datos del usuairo en el form 
         let errores = {}
         if (req.body.nombreUsuario == '') {
-            errores.message = "El nombre de usuario es obligatorio" //le agrego la posicion message al obj literal errores
-            res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+            errores.message = "El nombre de usuario es obligatorio"
+            res.locals.errores = errores
             return res.render('profile-edit');
         } else if (req.body.email == '') {
-            errores.message = "El email es obligatorio" //le agrego la posicion message al obj literal errores
-            res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+            errores.message = "El email es obligatorio" 
+            res.locals.errores = errores 
             return res.render('profile-edit');
         } else if (req.body.contrasena == '') {
             errores.message = "La contraseña es obligatoria"
             res.locals.errores = errores
             return res.render('profile-edit');
         } else if (req.body.contrasena.length < 3) {
-            errores.message = "La contraseña tiene que tener al menos 3 caracteres" //le agrego la posicion message al obj literal errores
+            errores.message = "La contraseña tiene que tener al menos 3 caracteres" 
             res.locals.errores = errores
             return res.render('profile-edit');
         } else if (req.body.contrasenaAnterior == '') {
-            errores.message = "Escriba su contraseña anterior" //le agrego la posicion message al obj literal errores
+            errores.message = "Escriba su contraseña anterior" 
             res.locals.errores = errores
             return res.render('profile-edit');
         } else {
-            //chequear que la contrasena anterior es correcta 
             usuarios.findOne({
                     where: [{
                         email: req.body.email
@@ -125,6 +117,7 @@ var usersController = {
                 })
                 .then(function (user) {
                     if (user) {
+                        //chequear que la contrasena anterior es correcta 
                         let compare = bcrypt.compareSync(req.body.contrasenaAnterior, user.contrasena)
                         if (compare) {
                             let user = {
@@ -147,13 +140,13 @@ var usersController = {
                                 })
                                 .catch(error => console.log(error))
                         } else {
-                            errores.message = "La contraseña anterior es incorrecta" //le agrego la posicion message al obj literal errores
-                            res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                            errores.message = "La contraseña anterior es incorrecta" 
+                            res.locals.errores = errores 
                             return res.render('profile-edit');
                         }
                     } else {
-                        errores.message = "El mail nunca fue registrado" //le agrego la posicion message al obj literal errores
-                        res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                        errores.message = "El mail nunca fue registrado" 
+                        res.locals.errores = errores 
                         return res.render('register');
                     }
                 })
@@ -161,27 +154,26 @@ var usersController = {
         }
     },
     store: function (req, res) {
-        //detectar errores de los datos del usuairo en el form 
+        
         let errores = {}
-        //chequear que el email no este vacio 
+
         if (req.body.nombreUsuario == '') {
-            errores.message = "El nombre de usuario es obligatorio" //le agrego la posicion message al obj literal errores
-            res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+            errores.message = "El nombre de usuario es obligatorio" 
+            res.locals.errores = errores
             return res.render('register');
         } else if (req.body.email == '') {
-            errores.message = "El email es obligatorio" //le agrego la posicion message al obj literal errores
-            res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+            errores.message = "El email es obligatorio"
+            res.locals.errores = errores 
             return res.render('register');
         } else if (req.body.contrasena == '') {
             errores.message = "La contraseña es obligatoria"
             res.locals.errores = errores
             return res.render('register');
         } else if (req.body.contrasena.length < 3) {
-            errores.message = "La contraseña tiene que tener al menos 3 caracteres" //le agrego la posicion message al obj literal errores
+            errores.message = "La contraseña tiene que tener al menos 3 caracteres" 
             res.locals.errores = errores
             return res.render('register');
         } else {
-            //chequear que el email no exista en la base 
             usuarios.findOne({
                     where: [{
                         email: req.body.email
@@ -189,8 +181,8 @@ var usersController = {
                 })
                 .then(function (user) {
                     if (user !== null) {
-                        errores.message = "Ese email ya existe, elija otro" //le agrego la posicion message al obj literal errores
-                        res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                        errores.message = "Ese email ya existe, elija otro" 
+                        res.locals.errores = errores 
                         return res.render('register');
                     } else {
                         usuarios.findOne({
@@ -200,23 +192,20 @@ var usersController = {
                             })
                             .then(function (user) {
                                 if (user !== null) {
-                                    errores.message = "Ese nombre de usuario ya existe, elija otro" //le agrego la posicion message al obj literal errores
-                                    res.locals.errores = errores //en locals.errors, va a estar el obj literal errores. se lo estoy pasando a la vista
+                                    errores.message = "Ese nombre de usuario ya existe, elija otro" 
+                                    res.locals.errores = errores 
                                     return res.render('register');
-                                } else {
-                                    //Obtener los datos del formulario y armar objeto literal con los datos que quiero guardar 
+                                } else { 
                                     let user = {
                                         email: req.body.email,
                                         nombreUsuario: req.body.nombreUsuario,
-                                        contrasena: bcrypt.hashSync(req.body.contrasena, 10), //vamos a hashear la contrasena que viene del form
+                                        contrasena: bcrypt.hashSync(req.body.contrasena, 10),
                                         nacimiento: req.body.nacimiento,
                                         documento: req.body.documento,
                                         imagen: req.file.filename
                                     }
-                                    //Guardar la info en la base de datos 
-                                    usuarios.create(user) //el primer userss llama al modelo que esta en db (los metodos siempre tienen que estar unidos a un modelo)
+                                    usuarios.create(user) 
                                         .then(function (respuesta) {
-                                            //Redirigir
                                             return res.redirect('/')
                                         })
                                         .catch(error => console.log(error))

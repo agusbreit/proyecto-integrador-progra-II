@@ -31,7 +31,4 @@ router.get("/edit/:id" , productController.edit)
 
 router.post("/edited/:id", upload.single('imagen'), productController.edited)
 
-
-// router.post('/:id?', productController.delete);
-
 module.exports = router;

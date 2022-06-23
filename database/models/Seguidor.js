@@ -35,7 +35,7 @@ module.exports = function (sequelize, dataTypes){
     //Configuraciones adicionales
     let config = {
         tableName: 'seguidores', //Nombre de la tabla en la base de datos.
-        timestamps: true, //Si la tabla no tiene los campos createdAt y updatedAt
+        timestamps: true, 
     }
 
     const Seguidor = sequelize.define(alias, cols, config);

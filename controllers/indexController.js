@@ -15,7 +15,7 @@ var indexController = {
                association: 'comentario'
             }],
             order: [
-               ['createdAt', 'ASC']
+               ['createdAt', 'DESC']
             ]
          })
          .then(function (productos) {
