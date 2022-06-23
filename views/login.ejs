@@ -6,7 +6,7 @@
 
 <body>
 	<!-- Header -->
-	<% if (user) { %> 
+	<% if (locals.user) { %> 
 		<%- include('partials/headerLogueado') %>
 	<% } else { %>
 		<%- include('partials/header') %>
@@ -19,7 +19,7 @@
 				<h2 class="products-title">Ingresar</h2>
 			</div>
 			<div class="col-11">
-					<% if (errores) {%> 
+					<% if (locals.errores) {%> 
 						<%= errores.message  %>  
 					<% } %> 
 			</div>
