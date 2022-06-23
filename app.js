@@ -18,17 +18,21 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//configurar session en app
 app.use(session({
   secret: 'fantasyStore',
   resave: false,
   saveUninitialized: true,
 }));
 
+//pasar de session a locals
 app.use(function(req,res,next){
   if (req.session.user) {
     res.locals.user = req.session.user
@@ -36,8 +40,7 @@ app.use(function(req,res,next){
   return next();
 })
 
-
-//preguntamos por la cookie y la vinculamos con la session
+//preguntamos por la cookie 
 app.use(function (req, res, next) {
   if (req.cookies.userId != undefined && req.session.user == undefined) { //necesito que el usuario este fuera de la sesion y que quiere iniciar directamente porque lo recorde
     let userId = req.cookies.userId;
