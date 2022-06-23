@@ -18,17 +18,21 @@ app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 
 app.use(logger('dev'));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
+
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+//configurar session en app
 app.use(session({
   secret: 'fantasyStore',
   resave: false,
   saveUninitialized: true,
 }));
 
+//pasar de session a locals
 app.use(function(req,res,next){
   if (req.session.user) {
     res.locals.user = req.session.user
